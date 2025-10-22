@@ -1,0 +1,430 @@
+{
+  "skills": [
+    {
+      "id": 1,
+      "name": "React.js",
+      "icon": "SiReact",
+      "level": 100,
+      "color": "bg-blue-600",
+      "primary": "#61dafb",
+      "light": "#e8f8ff",
+      "description": "کتابخانه‌ای قدرتمند برای ساخت رابط کاربری تعاملی. تجربه زیاد در ساخت کامپوننت‌های قابل‌استفاده مجدد، روتینگ و مدیریت وضعیت.",
+      "boxLeft": {
+        "title": "مباحث مرتبط",
+        "items": ["Hooks پیشرفته", "Redux Toolkit", "Context API"]
+      },
+      "boxRight": {
+        "title": "پروژه‌های مرتبط",
+        "items": [
+          "داشبورد React Admin",
+          "وبلاگ شخصی با Next.js",
+          "اپلیکیشن Todo پیشرفته"
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "HTML & CSS",
+      "icon": "SiHtml5",
+      "level": 100,
+      "color": "bg-orange-500",
+      "primary": "#f97316",
+      "light": "#fff4e6",
+      "description": "تسلط کامل بر ساختاردهی صفحات وب و طراحی واکنش‌گرا با Flexbox، Grid و انیمیشن‌های CSS. رعایت کامل اصول سئو و دسترس‌پذیری.",
+      "boxLeft": {
+        "title": "مفاهیم کلیدی",
+        "items": ["Flexbox و Grid", "انیمیشن‌های CSS", "بهینه‌سازی سئو"]
+      },
+      "boxRight": {
+        "title": "پروژه‌های تمرینی",
+        "items": ["صفحه فرود محصول", "سایت شرکتی", "پورتفولیو شخصی"]
+      }
+    },
+    {
+      "id": 3,
+      "name": "JavaScript",
+      "icon": "SiJavascript",
+      "level": 80,
+      "color": "bg-yellow-400",
+      "primary": "#facc15",
+      "light": "#fffbe6",
+      "description": "درک عمیق از مفاهیم پایه جاوااسکریپت از جمله async/await، closures و DOM manipulation. تجربه در توسعه برنامه‌های SPA.",
+      "boxLeft": {
+        "title": "مفاهیم مهم",
+        "items": ["Event Loop", "Promises و async/await", "Closures"]
+      },
+      "boxRight": {
+        "title": "پروژه‌های پیشنهادی",
+        "items": [
+          "بازی حافظه با JS",
+          "Todo App بدون فریمورک",
+          "تایمر و کرنومتر"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "name": "Tailwind CSS",
+      "icon": "SiTailwindcss",
+      "level": 100,
+      "color": "bg-teal-500",
+      "primary": "#14b8a6",
+      "light": "#e6fffa",
+      "description": "تجربه حرفه‌ای در طراحی سریع و تمیز رابط کاربری با Tailwind CSS و ساخت تم‌های سفارشی برای پروژه‌های شخصی و تجاری.",
+      "boxLeft": {
+        "title": "نکات مهم طراحی",
+        "items": ["Custom Theme", "Dark Mode", "Responsive Layouts"]
+      },
+      "boxRight": {
+        "title": "پروژه‌های مرتبط",
+        "items": [
+          "سایت فروشگاهی",
+          "داشبورد Tailwind Admin",
+          "UI Library اختصاصی"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "name": "shadcn/ui",
+      "icon": "SiReact",
+      "level": 85,
+      "color": "bg-purple-600",
+      "primary": "#9333ea",
+      "light": "#f5e8ff",
+      "description": "تسلط بر استفاده از shadcn/ui برای ساخت رابط‌های مدرن و زیبا با ترکیب Tailwind CSS و Radix UI. رعایت اصول طراحی تمیز و ماژولار.",
+      "boxLeft": {
+        "title": "کامپوننت‌های محبوب",
+        "items": ["Dialog و Sheet", "Tooltip و Toast", "Form Components"]
+      },
+      "boxRight": {
+        "title": "پروژه‌های کاربردی",
+        "items": ["پنل ادمین مدرن", "پروژه UI Kit", "Dashboard Analytics"]
+      }
+    },
+    {
+      "id": 6,
+      "name": "Next.js",
+      "icon": "SiNextdotjs",
+      "level": 85,
+      "color": "bg-gray-800",
+      "primary": "#1f2937",
+      "light": "#f3f4f6",
+      "description": "تجربه کار با SSR، SSG و API routes در Next.js. بهینه‌سازی عملکرد و سئو با ISR و استفاده از متادیتاهای داینامیک.",
+      "boxLeft": {
+        "title": "مباحث کلیدی",
+        "items": ["SSR / SSG / ISR", "Dynamic Routing", "Metadata و SEO"]
+      },
+      "boxRight": {
+        "title": "پروژه‌های پیشنهادی",
+        "items": ["وبلاگ داینامیک", "Portfolio با ISR", "API REST ساده"]
+      }
+    },
+    {
+      "id": 7,
+      "name": "Bootstrap",
+      "icon": "SiBootstrap",
+      "level": 100,
+      "color": "bg-purple-500",
+      "primary": "#a855f7",
+      "light": "#f7ebff",
+      "description": "آشنایی کامل با کلاس‌های کمکی Bootstrap و طراحی سریع رابط کاربری برای پروژه‌های شرکتی و صفحات لندینگ.",
+      "boxLeft": {
+        "title": "ابزارهای مهم",
+        "items": ["Grid System", "Utilities Classes", "Modal و Carousel"]
+      },
+      "boxRight": {
+        "title": "پروژه‌های تمرینی",
+        "items": ["وب‌سایت شرکتی", "لندینگ پیج محصول", "پنل ادمین ساده"]
+      }
+    },
+    {
+      "id": 8,
+      "name": "TypeScript",
+      "icon": "SiTypescript",
+      "level": 100,
+      "color": "bg-blue-900",
+      "primary": "#1e40af",
+      "light": "#e8f1ff",
+      "description": "تسلط بالا در استفاده از TypeScript برای نوشتن کد ایمن و قابل نگهداری. درک قوی از type inference، interfaces و generics.",
+      "boxLeft": {
+        "title": "مفاهیم کلیدی",
+        "items": ["Interfaces", "Generics", "Type Narrowing"]
+      },
+      "boxRight": {
+        "title": "پروژه‌های مرتبط",
+        "items": [
+          "API Type-safe با RTK Query",
+          "پروژه React + TS",
+          "مدیریت Type ها در پروژه بزرگ"
+        ]
+      }
+    }
+  ],
+  "articles": {
+    "JavaScript": [
+      {
+        "id": "1",
+        "title": "شروع جاوااسکریپت",
+        "desc": "نکات پایه‌ای برای شروع یادگیری جاوااسکریپت.",
+        "image": "/pic1.jpg",
+        "date": "1404/07/01",
+        "readTime": "5 دقیقه"
+      },
+      {
+        "id": "2",
+        "title": "توابع در جاوااسکریپت",
+        "desc": "همه‌چیز درباره فانکشن‌ها.",
+        "image": "/pic2.jpg",
+        "date": "1404/07/02",
+        "readTime": "7 دقیقه"
+      },
+      {
+        "id": "3",
+        "title": "DOM Manipulation",
+        "desc": "چطور با DOM کار کنیم؟",
+        "image": "/pic3.jpg",
+        "date": "1404/07/03",
+        "readTime": "6 دقیقه"
+      },
+      {
+        "id": "4",
+        "title": "ES6 Features",
+        "desc": "ویژگی‌های مهم ES6.",
+        "image": "/pic4.jpg",
+        "date": "1404/07/04",
+        "readTime": "8 دقیقه"
+      },
+      {
+        "id": "5",
+        "title": "Async Await",
+        "desc": "مدیریت کدهای async.",
+        "image": "/pic5.jpg",
+        "date": "1404/07/05",
+        "readTime": "10 دقیقه"
+      }
+    ],
+    "HTML & CSS": [
+      {
+        "id": "6",
+        "title": "شروع HTML",
+        "desc": "توضیحات پایه‌ای برای HTML.",
+        "image": "/pic1.jpg",
+        "date": "1404/06/01",
+        "readTime": "5 دقیقه"
+      },
+      {
+        "id": "7",
+        "title": "شروع CSS",
+        "desc": "استایل‌دهی اصولی.",
+        "image": "/pic2.jpg",
+        "date": "1404/06/02",
+        "readTime": "6 دقیقه"
+      },
+      {
+        "id": "8",
+        "title": "Flexbox",
+        "desc": "راهنمای کامل Flexbox.",
+        "image": "/pic3.jpg",
+        "date": "1404/06/03",
+        "readTime": "8 دقیقه"
+      },
+      {
+        "id": "9",
+        "title": "Grid",
+        "desc": "توضیحات Grid Layout.",
+        "image": "/pic4.jpg",
+        "date": "1404/06/04",
+        "readTime": "9 دقیقه"
+      },
+      {
+        "id": "10",
+        "title": "Responsive Design",
+        "desc": "طراحی ریسپانسیو.",
+        "image": "/pic5.jpg",
+        "date": "1404/06/05",
+        "readTime": "7 دقیقه"
+      }
+    ],
+    "React.js": [
+      {
+        "id": "11",
+        "title": "شروع React",
+        "desc": "اولین قدم‌ها در ری‌اکت.",
+        "image": "/pic1.jpg",
+        "date": "1404/05/01",
+        "readTime": "6 دقیقه"
+      },
+      {
+        "id": "12",
+        "title": "کامپوننت‌ها",
+        "desc": "ساختاردهی با کامپوننت‌ها.",
+        "image": "/pic2.jpg",
+        "date": "1404/05/02",
+        "readTime": "7 دقیقه"
+      },
+      {
+        "id": "13",
+        "title": "Props و State",
+        "desc": "چطور دیتا مدیریت کنیم؟",
+        "image": "/pic3.jpg",
+        "date": "1404/05/03",
+        "readTime": "9 دقیقه"
+      },
+      {
+        "id": "14",
+        "title": "هوک‌ها",
+        "desc": "آشنایی با React Hooks.",
+        "image": "/pic4.jpg",
+        "date": "1404/05/04",
+        "readTime": "10 دقیقه"
+      },
+      {
+        "id": "15",
+        "title": "ری‌اکت Router",
+        "desc": "مدیریت صفحات در ری‌اکت.",
+        "image": "/pic5.jpg",
+        "date": "1404/05/05",
+        "readTime": "12 دقیقه"
+      }
+    ],
+    "Next.js": [
+      {
+        "id": "16",
+        "title": "شروع Next.js",
+        "desc": "قدم اول با Next.",
+        "image": "/pic1.jpg",
+        "date": "1404/04/01",
+        "readTime": "7 دقیقه"
+      },
+      {
+        "id": "17",
+        "title": "File-based Routing",
+        "desc": "راوتینگ در Next.js.",
+        "image": "/pic2.jpg",
+        "date": "1404/04/02",
+        "readTime": "8 دقیقه"
+      },
+      {
+        "id": "18",
+        "title": "SSR و SSG",
+        "desc": "تفاوت SSR و SSG.",
+        "image": "/pic3.jpg",
+        "date": "1404/04/03",
+        "readTime": "10 دقیقه"
+      },
+      {
+        "id": "19",
+        "title": "API Routes",
+        "desc": "نوشتن API در Next.",
+        "image": "/pic4.jpg",
+        "date": "1404/04/04",
+        "readTime": "9 دقیقه"
+      },
+      {
+        "id": "20",
+        "title": "Deployment",
+        "desc": "دیپلوی روی Vercel.",
+        "image": "/pic5.jpg",
+        "date": "1404/04/05",
+        "readTime": "11 دقیقه"
+      }
+    ],
+    "TypeScript": [
+      {
+        "id": "21",
+        "title": "شروع TypeScript",
+        "desc": "چرا TS مهمه؟",
+        "image": "/pic1.jpg",
+        "date": "1404/03/01",
+        "readTime": "6 دقیقه"
+      },
+      {
+        "id": "22",
+        "title": "Types و Interfaces",
+        "desc": "مدیریت تایپ‌ها.",
+        "image": "/pic2.jpg",
+        "date": "1404/03/02",
+        "readTime": "7 دقیقه"
+      },
+      {
+        "id": "23",
+        "title": "Generics",
+        "desc": "درک بهتر Generics.",
+        "image": "/pic3.jpg",
+        "date": "1404/03/03",
+        "readTime": "8 دقیقه"
+      },
+      {
+        "id": "24",
+        "title": "Utility Types",
+        "desc": "انواع آماده TS.",
+        "image": "/pic4.jpg",
+        "date": "1404/03/04",
+        "readTime": "9 دقیقه"
+      },
+      {
+        "id": "25",
+        "title": "TS در React",
+        "desc": "چطور TS رو با React استفاده کنیم.",
+        "image": "/pic5.jpg",
+        "date": "1404/03/05",
+        "readTime": "10 دقیقه"
+      }
+    ]
+  },
+"projects": [
+  {
+    "id": "1",
+    "title": "بست شاپ",
+    "desc": "فروش موبایل و لپ تاپ و وسایل الکترونیکی با طراحی مدرن، تجربه کاربری روان و سیستم فیلتر پیشرفته برای انتخاب محصولات.",
+    "tech": ["HTML", "CSS", "JavaScript", "React.js", "Tailwind", "shadcn", "TypeScript"],
+    "image": "/pic1.jpg",
+    "github": "https://github.com/username/project1",
+    "linkedin": "https://linkedin.com/in/username",
+    "gitlab": "https://gitlab.com/username/project1",
+    "duration": "۲۵ روز",
+    "price": "۵ میلیون تومان",
+    "difficulty": 80
+  },
+  {
+    "id": "2",
+    "title": "تودو لیست",
+    "desc": "اپلیکیشن مدیریت کارها با امکان فیلتر، دسته‌بندی و انیمیشن‌های جذاب برای تجربه‌ای دل‌نشین‌تر در کارهای روزمره.",
+    "tech": ["React.js", "Next.js", "Tailwind", "TypeScript"],
+    "image": "/pic2.jpg",
+    "github": "https://github.com/username/project2",
+    "linkedin": "https://linkedin.com/in/username",
+    "gitlab": "https://gitlab.com/username/project2",
+    "duration": "۱۰ روز",
+    "price": "۲ میلیون تومان",
+    "difficulty": 60
+  },
+  {
+    "id": "3",
+    "title": "بلاگ شخصی",
+    "desc": "وبلاگ شخصی برای انتشار مقالات، نوشته‌ها و تجربیات برنامه‌نویسی، با طراحی مینیمال و حالت تاریک.",
+    "tech": ["Next.js", "Tailwind", "shadcn"],
+    "image": "/pic3.jpg",
+    "github": "https://github.com/username/project3",
+    "linkedin": "https://linkedin.com/in/username",
+    "gitlab": "https://gitlab.com/username/project3",
+    "duration": "۱۵ روز",
+    "price": "۳.۵ میلیون تومان",
+    "difficulty": 70
+  },
+  {
+    "id": "4",
+    "title": "فروشگاه مدرن",
+    "desc": "فروشگاه اینترنتی با طراحی مدرن و سیستم سبد خرید زنده، نوشته شده با React، Redux Toolkit و TypeScript.",
+    "tech": ["React.js", "Redux", "Tailwind", "TypeScript"],
+    "image": "/pic4.jpg",
+    "github": "https://github.com/username/project4",
+    "linkedin": "https://linkedin.com/in/username",
+    "gitlab": "https://gitlab.com/username/project4",
+    "duration": "۳۰ روز",
+    "price": "۷ میلیون تومان",
+    "difficulty": 90
+  }
+]
+}
