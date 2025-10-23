@@ -18,6 +18,7 @@ const cards = [
     icon: PhoneIcon,
     url: "/conect-me",
     color: "bg-blue-600",
+    darkColor: "bg-gray-800",
   },
   {
     title: "مهارت‌ها",
@@ -25,6 +26,7 @@ const cards = [
     icon: CodeBracketIcon,
     url: "/skills",
     color: "bg-green-600",
+    darkColor: "bg-gray-700",
   },
   {
     title: "پروژه‌ها",
@@ -32,6 +34,7 @@ const cards = [
     icon: FolderIcon,
     url: "/project",
     color: "bg-purple-600",
+    darkColor: "bg-gray-700",
   },
   {
     title: "مقالات",
@@ -39,6 +42,7 @@ const cards = [
     icon: DocumentTextIcon,
     url: "/article",
     color: "bg-red-600",
+    darkColor: "bg-gray-700",
   },
   {
     title: "درباره من",
@@ -46,10 +50,11 @@ const cards = [
     icon: UserIcon,
     url: "/about-me",
     color: "bg-orange-600",
+    darkColor: "bg-gray-700",
   },
 ];
 
-export default function HomePage() {
+export default function HomePage({ darkMode }) {
   const [text, setText] = useState("");
   const fullText =
     "سلام 👋 من امید پورباقر هستم، توسعه‌دهنده فرانت‌اند و عاشق خلق رابط‌های کاربری زیبا و تمیز.";
@@ -70,33 +75,47 @@ export default function HomePage() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-white text-gray-900 flex flex-col items-center overflow-hidden">
-      
+    <div
+      className={`w-full min-h-screen flex flex-col items-center overflow-hidden transition-colors duration-500
+        ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}
+    >
       {/* =============== HERO SECTION =============== */}
-      <section className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-16 py-12 md:py-20">
+      <section className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-16 py-12 md:py-20 text-center md:text-left">
         {/* متن معرفی */}
         <motion.div
-          className="flex-1 text-center md:text-left space-y-4 sm:space-y-5"
+          className="flex-1 space-y-4 sm:space-y-5"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight">
+          <h1
+            className={`text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-tight ${
+              darkMode ? "text-white" : "text-gray-900"
+            }`}
+          >
             <span className="block">Omid Pourbagher</span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-gray-700 font-light min-h-[60px]">
+          <p
+            className={`text-base sm:text-lg md:text-xl font-light min-h-[60px] ${
+              darkMode ? "text-gray-300" : "text-gray-700"
+            }`}
+          >
             {text}
           </p>
 
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-lg mx-auto md:mx-0 leading-relaxed">
+          <p
+            className={`text-sm sm:text-base md:text-lg max-w-lg mx-auto md:mx-0 leading-relaxed ${
+              darkMode ? "text-gray-300" : "text-gray-600"
+            }`}
+          >
             من عاشق خلق رابط‌های کاربری تمیز، سریع و مدرن هستم.  
             تمرکزم روی توسعه‌ی فرانت‌اند با React و Next.js و طراحی تجربه‌های کاربری خلاقانه‌ست.
           </p>
 
           <motion.button
             onClick={scrollToCards}
-            className="mt-8 relative px-8 sm:px-10 py-3 sm:py-4 rounded-full backdrop-blur-md bg-black text-white hover:bg-teal-800 hover:shadow-2xs font-semibold shadow-md transition duration-300 flex items-center gap-2 mx-auto md:mx-0"
+            className="mt-8 relative w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 rounded-full backdrop-blur-md bg-black text-white hover:bg-teal-800 hover:shadow-2xs font-semibold shadow-md transition duration-300 flex items-center justify-center gap-2 mx-auto md:mx-0"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -117,7 +136,7 @@ export default function HomePage() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2 }}
         >
-          <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-xl border-4 border-purple-100">
+          <div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-80 md:h-80 rounded-full overflow-hidden shadow-xl border-4 border-purple-100">
             <img
               src="/picProfile.jpg"
               alt="Omid Pourbagher"
@@ -128,8 +147,16 @@ export default function HomePage() {
       </section>
 
       {/* =============== SKILLS SECTION =============== */}
-      <section className="w-full py-12 sm:py-16 px-4 sm:px-6 md:px-16 text-center bg-gray-50">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
+      <section
+        className={`w-full py-12 sm:py-16 px-4 sm:px-6 md:px-16 text-center transition-colors duration-500 ${
+          darkMode ? "bg-gray-800" : "bg-gray-50"
+        }`}
+      >
+        <h2
+          className={`text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 leading-snug transition-colors duration-500 ${
+            darkMode ? "text-white" : "text-gray-900"
+          }`}
+        >
           مهارت‌ها و ابزارهایی که با عشق استفاده می‌کنم
         </h2>
         <div className="flex flex-wrap justify-center gap-3 sm:gap-5">
@@ -147,7 +174,9 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full ${skill.color} text-white text-sm sm:text-base font-medium shadow-md hover:scale-105 transition-all`}
+              className={`px-3 sm:px-5 py-2 sm:py-3 rounded-full ${
+                skill.color
+              } text-white text-xs sm:text-sm md:text-base font-medium shadow-md hover:scale-105 transition-all`}
             >
               {skill.name}
             </motion.div>
@@ -158,7 +187,7 @@ export default function HomePage() {
       {/* =============== CARDS SECTION =============== */}
       <section
         id="cards"
-        className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 p-4 sm:p-8 md:p-12 mb-16 sm:mb-20"
+        className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 p-4 sm:p-8 md:p-12 mb-16 sm:mb-20"
       >
         {cards.map((card, i) => (
           <Link href={card.url} key={i}>
@@ -167,13 +196,19 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
               viewport={{ once: true }}
-              className={`${card.color} text-white hover:shadow-2xl hover:scale-[1.03] transition-all rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 cursor-pointer`}
+              className={`text-white hover:shadow-2xl hover:scale-[1.03] transition-all rounded-2xl p-5 sm:p-8 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 cursor-pointer ${
+                darkMode ? card.darkColor : card.color
+              }`}
             >
               <div className="p-2 sm:p-3 bg-white/20 rounded-full">
                 <card.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h2 className="text-lg sm:text-xl font-semibold">{card.title}</h2>
-              <p className="text-xs sm:text-sm opacity-90">{card.desc}</p>
+              <h2 className="text-base sm:text-lg md:text-xl font-semibold">
+                {card.title}
+              </h2>
+              <p className="text-xs sm:text-sm opacity-90 leading-relaxed">
+                {card.desc}
+              </p>
             </motion.div>
           </Link>
         ))}

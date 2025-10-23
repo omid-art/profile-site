@@ -1,23 +1,29 @@
 "use client";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Gitlab } from "lucide-react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const projects = [
+interface Project {
+  id: number;
+  title: string;
+  desc: string;
+  tech: string[];
+  image: string;
+  github: string;
+  linkedin: string;
+  gitlab: string;
+}
+
+interface ProjectsProps {
+  darkMode?: boolean;
+}
+
+const projects: Project[] = [
   {
     id: 1,
     title: "بست شاپ",
     desc: "فروش موبایل و لپ تاپ و وسایل الکترونیکی",
-    tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "React.js",
-      "Tailwind",
-      "shadcn",
-      "TypeScript",
-    ],
+    tech: ["HTML", "CSS", "JavaScript", "React.js", "Tailwind", "shadcn", "TypeScript"],
     image: "/pic1.jpg",
     github: "https://github.com/username/project1",
     linkedin: "https://linkedin.com/in/username",
@@ -55,13 +61,20 @@ const projects = [
   },
 ];
 
-export default function Projects() {
+export default function Projects({ darkMode = false }: ProjectsProps) {
   const router = useRouter();
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-16" dir="rtl">
+    <div
+      className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 transition-colors duration-500 ${
+        darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+      }`}
+      dir="rtl"
+    >
       <motion.h1
-        className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900"
+        className={`text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 transition-colors duration-500 ${
+          darkMode ? "text-white" : "text-gray-900"
+        }`}
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -70,7 +83,7 @@ export default function Projects() {
         پروژه‌های من
       </motion.h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
         {projects.map((project, i) => (
           <motion.div
             key={project.id}
@@ -79,34 +92,46 @@ export default function Projects() {
             viewport={{ once: true }}
             transition={{ delay: i * 0.15, duration: 0.6, ease: "easeOut" }}
           >
-            {/* کارت کلیک‌پذیر بدون تگ لینک تو در تو */}
             <div
               onClick={() => router.push(`/project/${project.id}`)}
-              className="group [perspective:1000px] w-full h-80 cursor-pointer"
+              className="group [perspective:1000px] w-full h-72 sm:h-80 md:h-96 cursor-pointer"
             >
               <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                 {/* جلو کارت */}
-                <div className="absolute inset-0 rounded-2xl shadow-xl overflow-hidden bg-gray-200 flex items-center justify-center [backface-visibility:hidden]">
+                <div
+                  className={`absolute inset-0 rounded-2xl shadow-xl overflow-hidden flex items-center justify-center [backface-visibility:hidden] transition-colors duration-500 ${
+                    darkMode ? "bg-gray-800" : "bg-gray-200"
+                  }`}
+                >
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute bottom-0 bg-black/60 text-white w-full p-4 text-center text-lg font-bold">
+                  <div
+                    className="absolute bottom-0 w-full p-2 sm:p-4 text-center font-bold text-base sm:text-lg"
+                    style={{ backgroundColor: darkMode ? "#000000aa" : "rgba(0,0,0,0.6)" }}
+                  >
                     {project.title}
                   </div>
                 </div>
 
                 {/* پشت کارت */}
-                <div className="absolute inset-0 rounded-2xl shadow-xl text-white p-6 flex flex-col justify-between items-center [transform:rotateY(180deg)] [backface-visibility:hidden] bg-[#1c1c1c]">
-                  <div className="flex flex-col gap-3 items-center text-center">
-                    <h2 className="text-2xl font-bold">{project.title}</h2>
-                    <p className="text-sm opacity-90">{project.desc}</p>
-                    <div className="flex flex-wrap justify-center gap-2 mt-2">
+                <div
+                  className={`absolute inset-0 rounded-2xl shadow-xl p-4 sm:p-6 flex flex-col justify-between items-center [transform:rotateY(180deg)] [backface-visibility:hidden] transition-colors duration-500 ${
+                    darkMode ? "bg-gray-900 text-white" : "bg-[#1c1c1c] text-white"
+                  }`}
+                >
+                  <div className="flex flex-col gap-2 sm:gap-3 items-center text-center">
+                    <h2 className="text-xl sm:text-2xl font-bold">{project.title}</h2>
+                    <p className="text-xs sm:text-sm opacity-90 leading-relaxed">
+                      {project.desc}
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-1 sm:gap-2 mt-2">
                       {project.tech.map((t, idx) => (
                         <span
                           key={idx}
-                          className="bg-white/20 px-3 py-1 rounded-full text-sm"
+                          className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm"
                         >
                           {t}
                         </span>
@@ -114,35 +139,35 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  {/* آیکون‌ها (درست و بدون تداخل لینک‌ها) */}
-                  <div className="flex gap-6 mt-4">
-                    <Link
+                  {/* آیکون‌ها */}
+                  <div className="flex gap-4 sm:gap-6 mt-3 sm:mt-4">
+                    <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-gray-400 transition-colors"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <Github size={26} />
-                    </Link>
-                    <Link
+                      <Github size={22} className="sm:w-6 sm:h-6" />
+                    </a>
+                    <a
                       href={project.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-blue-400 transition-colors"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <Linkedin size={26} />
-                    </Link>
-                    <Link
+                      <Linkedin size={22} className="sm:w-6 sm:h-6" />
+                    </a>
+                    <a
                       href={project.gitlab}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-orange-400 transition-colors"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <Gitlab size={26} />
-                    </Link>
+                      <Gitlab size={22} className="sm:w-6 sm:h-6" />
+                    </a>
                   </div>
                 </div>
               </div>

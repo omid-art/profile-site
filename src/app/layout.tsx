@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NavbarHome from "@/component/NavbarHome";
 import Footer from "@/component/footer";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 
 
@@ -18,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <ThemeProvider>
           <NavbarHome />
         {children}
         <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -2,37 +2,59 @@
 import { FaInstagram, FaTelegram } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-export default function Contact() {
+interface ContactProps {
+  darkMode?: boolean;
+}
+
+export default function Contact({ darkMode = false }: ContactProps) {
   return (
     <motion.div
-      className="max-w-4xl mx-auto px-6 py-16"
+      className={`max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 transition-colors duration-500 ${
+        darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+      }`}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       dir="rtl"
     >
       {/* هدر */}
-      <h1 className="text-4xl md:text-5xl font-bold text-center via-gray-800 to-gray-600 mb-12">
+      <h1
+        className={`text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 ${
+          darkMode ? "text-white" : "text-gray-800"
+        }`}
+      >
         ارتباط با من
       </h1>
 
       {/* اطلاعات تماس */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 mb-12 sm:mb-16">
         {/* شماره و ایمیل */}
-        <div className="space-y-4">
-          <p className="text-lg"><span className="font-bold">تلفن:</span> 09128610567</p>
-          <p className="text-lg"><span className="font-bold">ایمیل:</span> pourbagher@gamil.com</p>
+        <div className={`space-y-3 sm:space-y-4 text-base sm:text-lg ${darkMode ? "text-gray-300" : "text-gray-700"}`}>
+          <p>
+            <span className="font-bold">تلفن:</span> 09128610567
+          </p>
+          <p>
+            <span className="font-bold">ایمیل:</span> pourbagher@gamil.com
+          </p>
         </div>
 
         {/* شبکه‌های اجتماعی */}
-        <div className="flex flex-col items-start gap-4">
-          <p className="font-bold text-lg">شبکه‌های اجتماعی:</p>
-          <div className="flex gap-4">
-            <a href="#" className="flex items-center gap-2 text-purple-600 hover:text-purple-400 transition">
-              <FaInstagram /> ihwimd
+        <div className="flex flex-col items-start gap-3 sm:gap-4">
+          <p className={`font-bold text-base sm:text-lg ${darkMode ? "text-white" : "text-gray-800"}`}>
+            شبکه‌های اجتماعی:
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <a
+              href="#"
+              className="flex items-center gap-2 text-purple-600 hover:text-purple-400 transition text-sm sm:text-base"
+            >
+              <FaInstagram className="text-lg sm:text-xl" /> ihwimd
             </a>
-            <a href="#" className="flex items-center gap-2 text-blue-500 hover:text-blue-400 transition">
-              <FaTelegram /> omidftf
+            <a
+              href="#"
+              className="flex items-center gap-2 text-blue-500 hover:text-blue-400 transition text-sm sm:text-base"
+            >
+              <FaTelegram className="text-lg sm:text-xl" /> omidftf
             </a>
           </div>
         </div>
@@ -40,16 +62,22 @@ export default function Contact() {
 
       {/* فرم تماس */}
       <motion.form
-        className="bg-gray-100 p-8 rounded-2xl shadow-lg space-y-6"
+        className={`p-6 sm:p-8 rounded-2xl shadow-lg space-y-5 sm:space-y-6 transition-colors duration-500 ${
+          darkMode ? "bg-gray-800 text-white" : "bg-gray-100 text-gray-900"
+        }`}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <motion.input
             type="text"
             placeholder="نام شما"
-            className="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:via-gray-800 to-gray-600"
+            className={`w-full p-3 sm:p-4 rounded-xl border focus:outline-none focus:ring-2 text-sm sm:text-base transition-colors duration-300 ${
+              darkMode
+                ? "bg-gray-700 border-gray-600 focus:ring-gray-400 text-white placeholder-gray-400"
+                : "bg-white border-gray-300 focus:ring-gray-600 text-gray-900 placeholder-gray-500"
+            }`}
             whileFocus={{ scale: 1.02 }}
             whileHover={{ scale: 1.01 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -58,7 +86,11 @@ export default function Contact() {
           <motion.input
             type="email"
             placeholder="ایمیل شما"
-            className="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:via-gray-800 to-gray-600"
+            className={`w-full p-3 sm:p-4 rounded-xl border focus:outline-none focus:ring-2 text-sm sm:text-base transition-colors duration-300 ${
+              darkMode
+                ? "bg-gray-700 border-gray-600 focus:ring-gray-400 text-white placeholder-gray-400"
+                : "bg-white border-gray-300 focus:ring-gray-600 text-gray-900 placeholder-gray-500"
+            }`}
             whileFocus={{ scale: 1.02 }}
             whileHover={{ scale: 1.01 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -69,7 +101,11 @@ export default function Contact() {
         <motion.input
           type="text"
           placeholder="موضوع"
-          className="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:via-gray-800 to-gray-600"
+          className={`w-full p-3 sm:p-4 rounded-xl border focus:outline-none focus:ring-2 text-sm sm:text-base transition-colors duration-300 ${
+            darkMode
+              ? "bg-gray-700 border-gray-600 focus:ring-gray-400 text-white placeholder-gray-400"
+              : "bg-white border-gray-300 focus:ring-gray-600 text-gray-900 placeholder-gray-500"
+          }`}
           whileFocus={{ scale: 1.02 }}
           whileHover={{ scale: 1.01 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -77,7 +113,11 @@ export default function Contact() {
         />
         <motion.textarea
           placeholder="پیام شما"
-          className="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:via-gray-800 to-gray-600 resize-none h-32"
+          className={`w-full p-3 sm:p-4 rounded-xl border focus:outline-none focus:ring-2 resize-none h-28 sm:h-32 text-sm sm:text-base transition-colors duration-300 ${
+            darkMode
+              ? "bg-gray-700 border-gray-600 focus:ring-gray-400 text-white placeholder-gray-400"
+              : "bg-white border-gray-300 focus:ring-gray-600 text-gray-900 placeholder-gray-500"
+          }`}
           whileFocus={{ scale: 1.02 }}
           whileHover={{ scale: 1.01 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -86,7 +126,11 @@ export default function Contact() {
 
         <motion.button
           type="submit"
-          className="w-full bg-gradient-to-r from-black via-gray-800 to-gray-600 text-white py-4 rounded-xl  hover:bg-black"
+          className={`w-full py-3 sm:py-4 rounded-xl hover:bg-opacity-90 text-sm sm:text-base transition-transform duration-300 ${
+            darkMode
+              ? "bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white"
+              : "bg-gradient-to-r from-black via-gray-800 to-gray-600 text-white"
+          }`}
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 500, damping: 40 }}
