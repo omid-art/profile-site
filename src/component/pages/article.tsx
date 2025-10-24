@@ -3,7 +3,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import articlesData from "@/database/db.json"; // ✅ دریافت از JSON
+import articlesData from "@/database/db.json";
+import { useTheme } from "@/context/ThemeContext"; // 👈 اتصال به Context
 
 interface Article {
   id: string;
@@ -33,7 +34,6 @@ function ArticleCarousel({ data, darkMode = false }: ArticleCarouselProps) {
     setIndex((i) => (i + 1) % data.length);
   };
 
-  // نمایش سه مقاله در آنِ واحد
   const visibleArticles = [
     data[index],
     data[(index + 1) % data.length],
@@ -89,26 +89,15 @@ function ArticleCarousel({ data, darkMode = false }: ArticleCarouselProps) {
                   alt={article.title}
                   className="h-40 sm:h-32 md:h-40 w-full object-cover rounded-t-2xl"
                 />
-                <div className="p-4">
-                  <h3
-                    className={`font-bold text-lg sm:text-base md:text-lg mb-2 ${
-                      darkMode ? "text-white" : "text-gray-800"
-                    }`}
-                  >
+                {/* ✅ بخش پایین کارت سفید با متن مشکی */}
+                <div className="p-4 bg-gray-100 transition-colors duration-500 shadow-2xl">
+                  <h3 className="font-bold text-lg sm:text-base md:text-lg mb-2 text-gray-900">
                     {article.title}
                   </h3>
-                  <p
-                    className={`text-sm sm:text-xs md:text-sm line-clamp-2 ${
-                      darkMode ? "text-gray-300" : "text-gray-600"
-                    }`}
-                  >
+                  <p className="text-sm sm:text-xs md:text-sm line-clamp-2 text-gray-800">
                     {article.desc}
                   </p>
-                  <div
-                    className={`mt-3 text-xs sm:text-[10px] md:text-xs flex justify-between ${
-                      darkMode ? "text-gray-400" : "text-gray-400"
-                    }`}
-                  >
+                  <div className="mt-3 text-xs sm:text-[10px] md:text-xs flex justify-between text-gray-500">
                     <span>{article.date}</span>
                     <span>{article.readTime}</span>
                   </div>
@@ -123,40 +112,44 @@ function ArticleCarousel({ data, darkMode = false }: ArticleCarouselProps) {
 }
 
 // 🔹 صفحه‌ی اصلی مقالات
-export default function ArticlesClient({ darkMode = false }) {
-  // ✅ حالا از db.json می‌گیریم
+export default function ArticlesClient() {
+  const { darkMode } = useTheme(); // 👈 استفاده از Context
   const categories = articlesData.articles;
 
   return (
     <div
-      className={`max-w-6xl mx-auto px-6 py-16 transition-colors duration-500 ${
+      className={`min-h-screen w-full transition-colors duration-700 ${
         darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
       }`}
       dir="rtl"
     >
-      <motion.h1
-        className={`text-4xl md:text-5xl font-bold text-center mb-12 leading-snug break-words ${
-          darkMode ? "text-white" : "bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent"
-        }`}
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        مقالات و تجربه‌های من
-      </motion.h1>
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <motion.h1
+          className={`text-4xl md:text-5xl font-bold text-center mb-12 leading-snug break-words ${
+            darkMode
+              ? "text-white"
+              : "bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent"
+          }`}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          مقالات و تجربه‌های من
+        </motion.h1>
 
-      {Object.keys(categories).map((cat, idx) => (
-        <div key={idx} className="mb-16">
-          <h2
-            className={`text-2xl font-bold mb-6 ${
-              darkMode ? "text-white" : "text-gray-800"
-            }`}
-          >
-            {cat}
-          </h2>
-          <ArticleCarousel data={categories[cat]} darkMode={darkMode} />
-        </div>
-      ))}
+        {Object.keys(categories).map((cat, idx) => (
+          <div key={idx} className="mb-16">
+            <h2
+              className={`text-2xl font-bold mb-6 ${
+                darkMode ? "text-white" : "text-gray-800"
+              }`}
+            >
+              {cat}
+            </h2>
+            <ArticleCarousel data={categories[cat]} darkMode={darkMode} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

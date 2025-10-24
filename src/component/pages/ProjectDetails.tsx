@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Gitlab } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useTheme } from "@/context/ThemeContext";
 
 interface Project {
   id: string;
@@ -20,15 +21,12 @@ interface Project {
 
 interface ProjectDetailsProps {
   projectId: string;
-  theme: "light" | "dark"; // نوبار اینو پاس می‌کنه
 }
 
-export default function ProjectDetails({
-  projectId,
-  theme,
-}: ProjectDetailsProps) {
+export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
+  const { darkMode } = useTheme(); // 💡 تم سراسری
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -70,32 +68,40 @@ export default function ProjectDetails({
       </motion.div>
     );
 
-  const bgColorMain =
-    theme === "dark"
-      ? "bg-gray-900 text-white"
-      : "bg-white text-gray-900";
+  // ✨ رنگ پس‌زمینه صفحه با transition نرم
+  const bgPage = darkMode ? "bg-gray-950" : "bg-gray-50";
+  const transitionStyle = "transition-all duration-700 ease-in-out";
+
+  // 🎨 کارت اصلی پروژه
+  const cardBg = darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900";
+
+  // 🎨 دکمه بازگشت
+  const buttonStyle = darkMode
+    ? "bg-violet-600 hover:bg-violet-700 text-white"
+    : "bg-gradient-to-r from-gray-800 to-gray-500 hover:from-gray-900 hover:to-gray-600 text-white";
 
   return (
-    <div
-      className={`relative max-w-7xl mx-auto py-12 sm:py-16 px-4 sm:px-6 flex flex-col lg:flex-row-reverse gap-10 lg:gap-8 ${theme === "dark" ? "dark" : ""}`}
+    <motion.div
+      className={`relative min-h-screen w-full py-12 sm:py-16 px-4 sm:px-6 flex flex-col lg:flex-row-reverse gap-10 lg:gap-8 ${bgPage} ${transitionStyle}`}
       dir="rtl"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6 }}
     >
       {/* ---------- ستون باکس‌های اطلاعات ---------- */}
       <div className="flex flex-row lg:flex-col justify-between gap-4 w-full lg:w-44">
-        {/* مدت زمان */}
-        <div className="bg-sky-200 rounded-2xl p-4 sm:p-5 text-center shadow-lg flex-1 h-auto lg:h-48 flex flex-col justify-center">
+        <div className="bg-sky-200 rounded-2xl p-4 text-center shadow-lg flex-1 flex flex-col justify-center transition-all duration-500">
           <p className="text-sm text-gray-700 dark:text-gray-200 mb-1">⏱ مدت زمان</p>
-          <p className="text-base sm:text-lg font-semibold">{project.duration}</p>
+          <p className="text-base font-semibold">{project.duration}</p>
         </div>
 
-        {/* مبلغ */}
-        <div className="bg-amber-200 rounded-2xl p-4 sm:p-5 text-center shadow-lg flex-1 h-auto lg:h-48 flex flex-col justify-center">
+        <div className="bg-amber-200 rounded-2xl p-4 text-center shadow-lg flex-1 flex flex-col justify-center transition-all duration-500">
           <p className="text-sm text-gray-700 dark:text-gray-200 mb-1">💰 مبلغ</p>
-          <p className="text-base sm:text-lg font-semibold">{project.price}</p>
+          <p className="text-base font-semibold">{project.price}</p>
         </div>
 
-        {/* درجه سختی */}
-        <div className="bg-violet-200 rounded-2xl p-4 sm:p-5 text-center shadow-lg flex-1 h-auto lg:h-48 flex flex-col justify-center">
+        <div className="bg-violet-200 rounded-2xl p-4 text-center shadow-lg flex-1 flex flex-col justify-center transition-all duration-500">
           <p className="text-sm text-gray-700 dark:text-gray-200 mb-2">💪 سختی پروژه</p>
           <div className="w-full bg-violet-300 h-2 rounded-full overflow-hidden">
             <div
@@ -109,27 +115,27 @@ export default function ProjectDetails({
 
       {/* ---------- محتوای اصلی پروژه ---------- */}
       <motion.div
-        className={`flex-1 rounded-3xl shadow-2xl overflow-hidden p-6 sm:p-8 ${bgColorMain}`}
+        className={`flex-1 rounded-3xl shadow-2xl overflow-hidden p-6 sm:p-8 ${cardBg} ${transitionStyle}`}
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        {/* هدر پروژه (عنوان + دکمه بازگشت) */}
+        {/* ---------- هدر ---------- */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">{project.title}</h1>
           <Link
             href="/project"
-            className="inline-flex items-center gap-2 bg-black text-white px-4 sm:px-5 py-2 rounded-xl hover:bg-gray-800 transition text-sm sm:text-base"
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm sm:text-base transition ${buttonStyle} ${transitionStyle}`}
           >
             ← بازگشت
           </Link>
         </div>
 
-        {/* چیدمان دو ستونه */}
+        {/* ---------- محتوا ---------- */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
           {/* تصویر پروژه */}
           <motion.div
-            className="relative rounded-2xl overflow-hidden shadow-xl group"
+            className="relative rounded-2xl overflow-hidden shadow-xl group transition-all duration-700"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
@@ -144,13 +150,17 @@ export default function ProjectDetails({
             </div>
           </motion.div>
 
-          {/* توضیحات پروژه */}
+          {/* توضیحات */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className={`text-sm sm:text-base leading-relaxed mb-6 ${theme === "dark" ? "text-gray-300" : "text-gray-700"}`}>
+            <p
+              className={`text-sm sm:text-base leading-relaxed mb-6 ${
+                darkMode ? "text-gray-300" : "text-gray-700"
+              } ${transitionStyle}`}
+            >
               {project.desc}
             </p>
 
@@ -160,10 +170,10 @@ export default function ProjectDetails({
                 <span
                   key={i}
                   className={`px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm ${
-                    theme === "dark"
+                    darkMode
                       ? "bg-gray-800 text-white"
-                      : "bg-black text-white"
-                  }`}
+                      : "bg-black text-white shadow-md"
+                  } ${transitionStyle}`}
                 >
                   {t}
                 </span>
@@ -200,6 +210,6 @@ export default function ProjectDetails({
           </motion.div>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { useContext } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import skillsData from "@/database/db.json";
@@ -13,6 +14,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { FaCode } from "react-icons/fa";
+import { useTheme } from "@/context/ThemeContext";
 
 const iconsMap: Record<string, React.ElementType> = {
   SiReact,
@@ -37,13 +39,17 @@ const fadeUp = {
 };
 
 export default function Skills() {
+  const { darkMode } = useTheme();
+
   return (
     <div
-      className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16"
       dir="rtl"
+      className={`min-h-screen px-4 sm:px-6 py-12 sm:py-16 transition-colors duration-700 ease-in-out ${
+        darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+      }`}
     >
       <motion.h1
-        className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-10 sm:mb-12 bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent leading-snug"
+        className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-10 sm:mb-12 leading-snug transition-colors duration-500"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -51,16 +57,7 @@ export default function Skills() {
         مهارت‌ های من 💪
       </motion.h1>
 
-      <div
-        className="
-          grid 
-          grid-cols-1 
-          sm:grid-cols-2 
-          lg:grid-cols-3 
-          gap-6 
-          sm:gap-8
-        "
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {skills.map((skill, index) => {
           const Icon =
             iconsMap[skill.icon as keyof typeof iconsMap] || FaCode;
@@ -78,8 +75,7 @@ export default function Skills() {
                   hover:scale-105 
                   transition-transform 
                   border 
-                  border-gray-200 
-                  dark:border-gray-800
+                  border-gray-200
                 "
                 style={{
                   backgroundColor: skill.light,

@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Gitlab } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useTheme } from "@/context/ThemeContext"; // مسیر رو تنظیم کن
 
 interface Project {
   id: number;
@@ -12,10 +13,6 @@ interface Project {
   github: string;
   linkedin: string;
   gitlab: string;
-}
-
-interface ProjectsProps {
-  darkMode?: boolean;
 }
 
 const projects: Project[] = [
@@ -61,18 +58,19 @@ const projects: Project[] = [
   },
 ];
 
-export default function Projects({ darkMode = false }: ProjectsProps) {
+export default function Projects() {
   const router = useRouter();
+  const { darkMode } = useTheme();
 
   return (
     <div
-      className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 transition-colors duration-500 ${
-        darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+      className={`min-h-screen transition-colors duration-700 ${
+        darkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"
       }`}
       dir="rtl"
     >
       <motion.h1
-        className={`text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 transition-colors duration-500 ${
+        className={`text-3xl sm:text-4xl md:text-5xl font-bold text-center pt-12 mb-8 sm:mb-12 ${
           darkMode ? "text-white" : "text-gray-900"
         }`}
         initial={{ opacity: 0, y: 40 }}
@@ -83,7 +81,7 @@ export default function Projects({ darkMode = false }: ProjectsProps) {
         پروژه‌های من
       </motion.h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
         {projects.map((project, i) => (
           <motion.div
             key={project.id}
@@ -99,8 +97,10 @@ export default function Projects({ darkMode = false }: ProjectsProps) {
               <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                 {/* جلو کارت */}
                 <div
-                  className={`absolute inset-0 rounded-2xl shadow-xl overflow-hidden flex items-center justify-center [backface-visibility:hidden] transition-colors duration-500 ${
-                    darkMode ? "bg-gray-800" : "bg-gray-200"
+                  className={`absolute inset-0 rounded-2xl overflow-hidden flex items-center justify-center [backface-visibility:hidden] transition-colors duration-500 ${
+                    darkMode
+                      ? "bg-purple-950 shadow-[0_0_25px_-10px_rgba(255,255,255,0.15)]"
+                      : "bg-white shadow-[0_4px_25px_-10px_rgba(0,0,0,0.15)]"
                   }`}
                 >
                   <img
@@ -109,8 +109,9 @@ export default function Projects({ darkMode = false }: ProjectsProps) {
                     className="w-full h-full object-cover"
                   />
                   <div
-                    className="absolute bottom-0 w-full p-2 sm:p-4 text-center font-bold text-base sm:text-lg"
-                    style={{ backgroundColor: darkMode ? "#000000aa" : "rgba(0,0,0,0.6)" }}
+                    className={`absolute bottom-0 w-full p-3 sm:p-4 text-center font-bold text-base sm:text-lg ${
+                      darkMode ? "text-white bg-black/60" : "text-white bg-black/60"
+                    }`}
                   >
                     {project.title}
                   </div>
@@ -118,8 +119,10 @@ export default function Projects({ darkMode = false }: ProjectsProps) {
 
                 {/* پشت کارت */}
                 <div
-                  className={`absolute inset-0 rounded-2xl shadow-xl p-4 sm:p-6 flex flex-col justify-between items-center [transform:rotateY(180deg)] [backface-visibility:hidden] transition-colors duration-500 ${
-                    darkMode ? "bg-gray-900 text-white" : "bg-[#1c1c1c] text-white"
+                  className={`absolute inset-0 rounded-2xl p-4 sm:p-6 flex flex-col justify-between items-center [transform:rotateY(180deg)] [backface-visibility:hidden] transition-all duration-500 ${
+                    darkMode
+                      ? "bg-gradient-to-br from-purple-800 via-purple-900 to-black text-white"
+                      : "bg-gradient-to-br from-black via-gray-800 to-gray-500 text-white"
                   }`}
                 >
                   <div className="flex flex-col gap-2 sm:gap-3 items-center text-center">
@@ -145,10 +148,10 @@ export default function Projects({ darkMode = false }: ProjectsProps) {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-gray-400 transition-colors"
+                      className="hover:text-gray-300 transition-colors"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <Github size={22} className="sm:w-6 sm:h-6" />
+                      <Github size={24} />
                     </a>
                     <a
                       href={project.linkedin}
@@ -157,7 +160,7 @@ export default function Projects({ darkMode = false }: ProjectsProps) {
                       className="hover:text-blue-400 transition-colors"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <Linkedin size={22} className="sm:w-6 sm:h-6" />
+                      <Linkedin size={24} />
                     </a>
                     <a
                       href={project.gitlab}
@@ -166,7 +169,7 @@ export default function Projects({ darkMode = false }: ProjectsProps) {
                       className="hover:text-orange-400 transition-colors"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <Gitlab size={22} className="sm:w-6 sm:h-6" />
+                      <Gitlab size={24} />
                     </a>
                   </div>
                 </div>

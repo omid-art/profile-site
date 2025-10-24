@@ -5,49 +5,78 @@ import { motion } from "framer-motion";
 import * as SiIcons from "react-icons/si";
 import { FaArrowRightLong } from "react-icons/fa6";
 import skillsData from "@/database/db.json";
-import { Link } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
 
 const SkillDetails = () => {
   const { id } = useParams();
   const router = useRouter();
+  const { darkMode } = useTheme();
   const skill = skillsData.skills.find((s) => s.id === Number(id));
 
   if (!skill)
-    return <p className="text-center text-gray-600 mt-20">مهارت پیدا نشد 😢</p>;
+    return (
+      <p
+        className={`text-center mt-20 transition-colors duration-500 ${
+          darkMode ? "text-white" : "text-gray-600"
+        }`}
+      >
+        مهارت پیدا نشد 😢
+      </p>
+    );
 
   const Icon = (SiIcons as any)[skill.icon];
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-center px-6 py-16 relative"
       dir="rtl"
+      className={`min-h-screen flex flex-col items-center justify-center px-6 py-16 relative transition-colors duration-700 ease-in-out ${
+        darkMode ? "bg-gray-900" : "bg-white"
+      }`}
       style={{
-        background: `linear-gradient(to bottom right, ${skill.light}, white)`,
+        background: `linear-gradient(to bottom right, ${
+          darkMode ? "#1f2937" : skill.light
+        }, ${darkMode ? "#111827" : "white"})`,
       }}
     >
-      {/* دکمه بازگشت */}
-      <button
-        onClick={() => router.push("/skills")}
-        className="group mb-10 flex items-center gap-3 px-6 py-3 rounded-full font-bold shadow-lg text-gray-800 transition-all hover:scale-105 hover:shadow-xl"
-        style={{
-          background: `linear-gradient(135deg, ${skill.primary}, #0000)`,
-        }}
-      >
-        <span className="group-hover:-translate-x-1 transition-transform">←</span>
-        بازگشت به مهارت‌ها
-      </button>
+      {/* دکمه بازگشت (رنگ و استایل ثابت) */}
+<button
+  onClick={() => router.push("/skills")}
+  className={`group mb-10 flex items-center gap-3 px-6 py-3 rounded-full font-bold shadow-lg transition-all hover:scale-105 hover:shadow-xl ${
+    darkMode ? "text-white" : "text-gray-800"
+  }`}
+  style={{
+    background: `linear-gradient(135deg, ${skill.primary}, #0000)`,
+  }}
+>
+  <span className="group-hover:-translate-x-1 transition-transform">←</span>
+  بازگشت به مهارت‌ها
+</button>
+
 
       <div className="relative flex flex-col md:flex-row items-start gap-10 w-full max-w-6xl">
-        {/* باکس سمت چپ (داینامیک) */}
+        {/* باکس سمت چپ */}
         {skill.boxLeft && (
           <motion.div
-            className="hidden md:flex flex-col bg-white/90 backdrop-blur-lg rounded-2xl p-6 w-64 shadow-lg"
+            className="hidden md:flex flex-col backdrop-blur-lg rounded-2xl p-6 w-64 shadow-lg transition-colors duration-700"
+            style={{
+              backgroundColor: darkMode ? "#111827" : "rgba(255,255,255,0.9)",
+            }}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="font-bold text-lg mb-4">{skill.boxLeft.title}</h2>
-            <ul className="list-disc list-inside text-gray-600 text-sm">
+            <h2
+              className={`font-bold text-lg mb-4 transition-colors duration-500 ${
+                darkMode ? "text-white" : "text-gray-800"
+              }`}
+            >
+              {skill.boxLeft.title}
+            </h2>
+            <ul
+              className={`list-disc list-inside text-sm transition-colors duration-500 ${
+                darkMode ? "text-white" : "text-gray-600"
+              }`}
+            >
               {skill.boxLeft.items.map((item: string, i: number) => (
                 <li key={i}>{item}</li>
               ))}
@@ -57,7 +86,10 @@ const SkillDetails = () => {
 
         {/* کارت اصلی */}
         <motion.div
-          className="bg-white/70 backdrop-blur-xl rounded-3xl p-10 shadow-2xl flex-1 flex flex-col md:flex-row items-center gap-10 relative hover:shadow-3xl transition-shadow transform overflow-hidden"
+          className="rounded-3xl p-10 shadow-2xl flex-1 flex flex-col md:flex-row items-center gap-10 relative hover:shadow-3xl  transform overflow-hidden transition-colors duration-700"
+          style={{
+            backgroundColor: darkMode ? "#1f2937" : "rgba(255,255,255,0.7)",
+          }}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -76,7 +108,7 @@ const SkillDetails = () => {
 
           <div className="flex-1 flex flex-col gap-6 text-right z-10">
             <h1
-              className="text-4xl md:text-5xl font-extrabold"
+              className="text-4xl md:text-5xl font-extrabold transition-colors duration-500"
               style={{ color: skill.primary }}
             >
               {skill.name}
@@ -108,11 +140,15 @@ const SkillDetails = () => {
               </span>
             </div>
 
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <p
+              className={`text-lg leading-relaxed transition-colors duration-500 ${
+                darkMode ? "text-white" : "text-gray-700"
+              }`}
+            >
               {skill.description}
             </p>
 
-            <Link
+            <a
               href="#"
               className="inline-flex items-center gap-2 font-semibold text-white px-6 py-3 rounded-xl transition-transform hover:scale-105"
               style={{
@@ -122,20 +158,33 @@ const SkillDetails = () => {
             >
               مشاهده پروژه مرتبط
               <FaArrowRightLong className="text-xl" />
-            </Link>
+            </a>
           </div>
         </motion.div>
 
-        {/* باکس سمت راست (داینامیک) */}
+        {/* باکس سمت راست */}
         {skill.boxRight && (
           <motion.div
-            className="hidden md:flex flex-col bg-white/90 backdrop-blur-lg rounded-2xl p-6 w-64 shadow-lg"
+            className="hidden md:flex flex-col backdrop-blur-lg rounded-2xl p-6 w-64 shadow-lg transition-colors duration-700"
+            style={{
+              backgroundColor: darkMode ? "#111827" : "rgba(255,255,255,0.9)",
+            }}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="font-bold text-lg mb-4">{skill.boxRight.title}</h2>
-            <ul className="list-disc list-inside text-gray-600 text-sm">
+            <h2
+              className={`font-bold text-lg mb-4 transition-colors duration-500 ${
+                darkMode ? "text-white" : "text-gray-800"
+              }`}
+            >
+              {skill.boxRight.title}
+            </h2>
+            <ul
+              className={`list-disc list-inside text-sm transition-colors duration-500 ${
+                darkMode ? "text-white" : "text-gray-600"
+              }`}
+            >
               {skill.boxRight.items.map((item: string, i: number) => (
                 <li key={i}>{item}</li>
               ))}
