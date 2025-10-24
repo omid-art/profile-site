@@ -6,7 +6,7 @@ import { useTheme } from "@/context/ThemeContext";
 
 function NavbarHome() {
   const [isOpen, setIsOpen] = useState(false);
-  const { darkMode, toggleDarkMode } = useTheme(); // استفاده از Context
+  const { darkMode, toggleDarkMode, isMounted } = useTheme();
 
   const navItems = [
     { title: "ارتباط با من", href: "/conect-me", icon: <Mail size={20} /> },
@@ -17,12 +17,15 @@ function NavbarHome() {
     { title: "خانه", href: "/", icon: <Home size={20} /> },
   ];
 
+  // Hydration safe: قبل از mount چیزی نمایش نده
+  if (!isMounted) return null;
+
   return (
     <>
       <nav className="w-full fixed top-0 left-0 backdrop-blur-md bg-black/20 text-white flex justify-between items-center px-6 py-3 z-50 shadow-md transition-colors duration-300">
         <div className="flex items-center gap-4">
           <div
-            onClick={toggleDarkMode} // حالا از Context استفاده میکنیم
+            onClick={toggleDarkMode}
             className={`w-16 h-8 flex items-center rounded-full p-1 cursor-pointer relative transition-colors duration-500
               ${darkMode ? "bg-gray-800" : "bg-gray-300"}`}
           >
@@ -39,7 +42,7 @@ function NavbarHome() {
           </div>
         </div>
 
-        {/* بقیه کد نوبار بدون تغییر */}
+        {/* منو موبایل و desktop بدون تغییر */}
         <div className="md:hidden flex items-center">
           <button onClick={() => setIsOpen(!isOpen)} className="p-2 rounded-md hover:bg-white/20 transition">
             {isOpen ? <X size={28} /> : <Menu size={28} />}

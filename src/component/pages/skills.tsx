@@ -103,7 +103,7 @@ export default function Skills() {
 
                 <p
                   className={`leading-relaxed ${
-                    darkMode ? "text-gray-200" : "text-gray-700"
+                    darkMode ? "text-gray-700" : "text-gray-700"
                   } text-sm sm:text-base`}
                 >
                   {skill.description}
@@ -122,7 +122,7 @@ export default function Skills() {
 
                 <p
                   className={`text-right font-semibold text-xs sm:text-sm ${
-                    darkMode ? "text-gray-300" : "text-gray-600"
+                    darkMode ? "text-gray-600" : "text-gray-600"
                   }`}
                 >
                   سطح مهارت: {skill.level}%
