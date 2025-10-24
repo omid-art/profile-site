@@ -92,7 +92,7 @@
       "color": "bg-purple-600",
       "primary": "#9333ea",
       "light": "#f5e8ff",
-      "description": "تسلط بر استفاده از shadcn/ui برای ساخت رابط‌های مدرن و زیبا با ترکیب Tailwind CSS و Radix UI. رعایت اصول طراحی تمیز و ماژولار.",
+      "description": "تسلط بر استفاده از shadcn/ui برای ساخت رابط‌های مدرن و زیبا با ترکیب Tailwind CSS و Radix UI. رعایت اصول طراحی تمیز .",
       "boxLeft": {
         "title": "کامپوننت‌های محبوب",
         "items": ["Dialog و Sheet", "Tooltip و Toast", "Form Components"]
@@ -107,9 +107,9 @@
       "name": "Next.js",
       "icon": "SiNextdotjs",
       "level": 85,
-      "color": "bg-gray-800",
-      "primary": "#1f2937",
-      "light": "#f3f4f6",
+      "color": "bg-gray-600",
+      "primary": "#757575",
+      "light": "#e0e0e0",
       "description": "تجربه کار با SSR، SSG و API routes در Next.js. بهینه‌سازی عملکرد و سئو با ISR و استفاده از متادیتاهای داینامیک.",
       "boxLeft": {
         "title": "مباحث کلیدی",

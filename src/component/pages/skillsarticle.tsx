@@ -25,7 +25,6 @@ const SkillDetails = () => {
       </p>
     );
 
-  // تایپ درست برای داینامیک آیکون
   const Icon = (SiIcons as Record<string, IconType>)[skill.icon];
 
   return (
@@ -40,7 +39,6 @@ const SkillDetails = () => {
         }, ${darkMode ? "#111827" : "white"})`,
       }}
     >
-      {/* دکمه بازگشت */}
       <button
         onClick={() => router.push("/skills")}
         className={`group mb-10 flex items-center gap-3 px-6 py-3 rounded-full font-bold shadow-lg transition-all hover:scale-105 hover:shadow-xl ${
@@ -55,7 +53,6 @@ const SkillDetails = () => {
       </button>
 
       <div className="relative flex flex-col md:flex-row items-start gap-10 w-full max-w-6xl">
-        {/* باکس سمت چپ */}
         {skill.boxLeft && (
           <motion.div
             className="hidden md:flex flex-col backdrop-blur-lg rounded-2xl p-6 w-64 shadow-lg transition-colors duration-700"
@@ -85,7 +82,6 @@ const SkillDetails = () => {
           </motion.div>
         )}
 
-        {/* کارت اصلی */}
         <motion.div
           className="rounded-3xl p-10 shadow-2xl flex-1 flex flex-col md:flex-row items-center gap-10 relative hover:shadow-3xl  transform overflow-hidden transition-colors duration-700"
           style={{
@@ -165,7 +161,6 @@ const SkillDetails = () => {
           </div>
         </motion.div>
 
-        {/* باکس سمت راست */}
         {skill.boxRight && (
           <motion.div
             className="hidden md:flex flex-col backdrop-blur-lg rounded-2xl p-6 w-64 shadow-lg transition-colors duration-700"

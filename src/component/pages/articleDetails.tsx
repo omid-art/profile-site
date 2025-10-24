@@ -43,7 +43,6 @@ export default function ArticleDetails({ article }: ArticleDetailsProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        {/* دکمه بازگشت */}
         <motion.button
           onClick={() => router.push("/article")}
           className={`absolute top-3 sm:top-4 left-3 sm:left-4 px-3 sm:px-4 py-2 rounded-xl flex items-center gap-2 font-semibold text-xs sm:text-sm transition-all shadow-sm hover:shadow-md z-20 ${
@@ -163,7 +162,6 @@ export default function ArticleDetails({ article }: ArticleDetailsProps) {
               </div>
             </div>
 
-            {/* نوار پیشرفت مطالعه */}
             <div className="flex items-center gap-2 mb-6">
               <BookOpen
                 size={18}
@@ -210,7 +208,6 @@ export default function ArticleDetails({ article }: ArticleDetailsProps) {
         </div>
       </motion.div>
 
-      {/* 👇 بخش تیتر توضیحات */}
       <div className="flex flex-col items-center mt-12 sm:mt-16 mb-4">
         <motion.h2
           className={`text-xl sm:text-2xl md:text-3xl font-bold mb-2 ${

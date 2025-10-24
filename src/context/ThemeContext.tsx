@@ -17,7 +17,6 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [darkMode, setDarkMode] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
-  // فقط بعد از mount روی کلاینت
   useEffect(() => {
     const stored = localStorage.getItem("darkMode");
     if (stored) setDarkMode(JSON.parse(stored));

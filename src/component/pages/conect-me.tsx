@@ -1,7 +1,7 @@
 "use client";
 import { FaInstagram, FaTelegram } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { useTheme } from "@/context/ThemeContext"; // مسیر رو با پروژه‌ت تنظیم کن
+import { useTheme } from "@/context/ThemeContext";
 
 export default function Contact() {
   const { darkMode } = useTheme();
@@ -19,7 +19,6 @@ export default function Contact() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         dir="rtl"
       >
-        {/* هدر */}
         <h1
           className={`text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 ${
             darkMode ? "text-white" : "text-gray-800"
@@ -28,7 +27,6 @@ export default function Contact() {
           ارتباط با من
         </h1>
 
-        {/* اطلاعات تماس */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 mb-12 sm:mb-16">
           <div
             className={`space-y-3 sm:space-y-4 text-base sm:text-lg ${
@@ -135,7 +133,6 @@ export default function Contact() {
             required
           />
 
-          {/* دکمه با گرادیانت جدید */}
           <motion.button
             type="submit"
             className={`w-full py-3 sm:py-4 rounded-xl font-semibold transition-transform duration-300 shadow-lg ${

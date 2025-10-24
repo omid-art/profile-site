@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Gitlab } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { useTheme } from "@/context/ThemeContext"; // مسیر رو تنظیم کن
+import { useTheme } from "@/context/ThemeContext"; 
 
 interface Project {
   id: number;
@@ -145,7 +145,6 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  {/* آیکون‌ها */}
                   <div className="flex gap-4 sm:gap-6 mt-3 sm:mt-4">
                     <a
                       href={project.github}

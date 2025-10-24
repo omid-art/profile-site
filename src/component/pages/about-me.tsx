@@ -1,8 +1,7 @@
 "use client";
 import { motion, Variants } from "framer-motion";
-import { useTheme } from "@/context/ThemeContext"; // 👈 اتصال به Context
+import { useTheme } from "@/context/ThemeContext"; 
 
-// 🔹 تعریف صحیح Variants با custom برای استفاده از index
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: (custom: number) => ({
@@ -51,7 +50,6 @@ export default function AboutPage() {
       dir="rtl"
     >
       <div className="max-w-6xl mx-auto px-6 py-16 sm:px-4">
-        {/* عنوان */}
         <motion.h1
           className={`text-4xl sm:text-3xl md:text-5xl font-bold text-center mb-12 leading-snug break-words ${
             darkMode
@@ -65,7 +63,6 @@ export default function AboutPage() {
           سلام من امیدم!
         </motion.h1>
 
-        {/* معرفی کوتاه */}
         <motion.div
           className="mb-12 text-right"
           initial={{ opacity: 0, y: 30 }}
@@ -89,7 +86,6 @@ export default function AboutPage() {
           </p>
         </motion.div>
 
-        {/* داستان زندگی */}
         <div className="space-y-8 text-right">
           {paragraphs.map((text, i) => (
             <motion.p

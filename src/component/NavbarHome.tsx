@@ -17,7 +17,6 @@ function NavbarHome() {
     { title: "خانه", href: "/", icon: <Home size={20} /> },
   ];
 
-  // Hydration safe: قبل از mount چیزی نمایش نده
   if (!isMounted) return null;
 
   return (

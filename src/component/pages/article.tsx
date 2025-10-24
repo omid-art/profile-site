@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import articlesData from "@/database/db.json";
-import { useTheme } from "@/context/ThemeContext"; // 👈 اتصال به Context
+import { useTheme } from "@/context/ThemeContext"; 
 
 interface Article {
   id: string;
@@ -21,7 +21,6 @@ interface ArticleCarouselProps {
   darkMode?: boolean;
 }
 
-// 🔹 کامپوننت اسلایدر مقاله‌ها
 function ArticleCarousel({ data, darkMode = false }: ArticleCarouselProps) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState<"left" | "right">("right");
@@ -93,7 +92,6 @@ function ArticleCarousel({ data, darkMode = false }: ArticleCarouselProps) {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
-                {/* ✅ بخش پایین کارت سفید با متن مشکی */}
                 <div className="p-4 bg-gray-100 transition-colors duration-500 shadow-2xl">
                   <h3 className="font-bold text-lg sm:text-base md:text-lg mb-2 text-gray-900">
                     {article.title}
@@ -115,12 +113,12 @@ function ArticleCarousel({ data, darkMode = false }: ArticleCarouselProps) {
   );
 }
 
-// 🔹 صفحه‌ی اصلی مقالات
+// صفحه‌ی اصلی مقالات
 export default function ArticlesClient() {
-  const { darkMode } = useTheme(); // 👈 استفاده از Context
+  const { darkMode } = useTheme(); 
   const categories = articlesData.articles;
 
-  type CategoryKey = keyof typeof categories; // 🔹 برطرف کردن ارور
+  type CategoryKey = keyof typeof categories; 
   const categoryKeys = Object.keys(categories) as CategoryKey[];
 
   return (

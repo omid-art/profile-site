@@ -85,7 +85,6 @@ export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6 }}
     >
-      {/* ---------- ستون باکس‌های اطلاعات ---------- */}
       <div className="flex flex-row lg:flex-col justify-between gap-4 w-full lg:w-44">
         <div className="bg-sky-200 rounded-2xl p-4 text-center shadow-lg flex-1 flex flex-col justify-center transition-all duration-500">
           <p className="text-sm text-gray-700 dark:text-gray-200 mb-1">⏱ مدت زمان</p>
@@ -109,14 +108,12 @@ export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
         </div>
       </div>
 
-      {/* ---------- محتوای اصلی پروژه ---------- */}
       <motion.div
         className={`flex-1 rounded-3xl shadow-2xl overflow-hidden p-6 sm:p-8 ${cardBg} ${transitionStyle}`}
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        {/* ---------- هدر ---------- */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">{project.title}</h1>
           <Link
@@ -127,9 +124,7 @@ export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
           </Link>
         </div>
 
-        {/* ---------- محتوا ---------- */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
-          {/* تصویر پروژه */}
           <motion.div
             className="relative rounded-2xl overflow-hidden shadow-xl group transition-all duration-700"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -149,7 +144,6 @@ export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
             </div>
           </motion.div>
 
-          {/* توضیحات */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -163,7 +157,6 @@ export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
               {project.desc}
             </p>
 
-            {/* تکنولوژی‌ها */}
             <div className="flex flex-wrap gap-2 sm:gap-3 mb-8">
               {project.tech?.map((t: string, i: number) => (
                 <span
@@ -179,7 +172,6 @@ export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
               ))}
             </div>
 
-            {/* لینک‌ها */}
             <div className="flex gap-4 sm:gap-6">
               <Link
                 href={project.github}

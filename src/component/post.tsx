@@ -81,7 +81,6 @@ export default function HomePage() {
           : "bg-gradient-to-b from-white to-gray-100 text-gray-900"
       }`}
     >
-      {/* HERO SECTION */}
       <section className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-16 py-12 md:py-20 text-center md:text-left">
         <motion.div
           className="flex-1 space-y-4 sm:space-y-5"
@@ -136,7 +135,6 @@ export default function HomePage() {
           </motion.button>
         </motion.div>
 
-        {/* تصویر کناری */}
         <motion.div
           className="flex-1 flex justify-center mt-10 md:mt-0"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -159,7 +157,6 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* SKILLS SECTION */}
       <section
         className={`w-full py-12 sm:py-16 px-4 sm:px-6 md:px-16 text-center transition-colors duration-700 ${
           darkMode ? "bg-gray-900" : "bg-gray-50"
@@ -195,7 +192,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CARDS SECTION */}
       <section
         id="cards"
         className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 p-4 sm:p-8 md:p-12 mb-16 sm:mb-20"
