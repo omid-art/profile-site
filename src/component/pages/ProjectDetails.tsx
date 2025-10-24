@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Gitlab } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useTheme } from "@/context/ThemeContext";
 
@@ -68,14 +69,9 @@ export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
       </motion.div>
     );
 
-  // ✨ رنگ پس‌زمینه صفحه با transition نرم
   const bgPage = darkMode ? "bg-gray-950" : "bg-gray-50";
   const transitionStyle = "transition-all duration-700 ease-in-out";
-
-  // 🎨 کارت اصلی پروژه
   const cardBg = darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900";
-
-  // 🎨 دکمه بازگشت
   const buttonStyle = darkMode
     ? "bg-violet-600 hover:bg-violet-700 text-white"
     : "bg-gradient-to-r from-gray-800 to-gray-500 hover:from-gray-900 hover:to-gray-600 text-white";
@@ -140,10 +136,13 @@ export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <img
+            <Image
               src={project.image}
               alt={project.title}
+              width={800}
+              height={400}
               className="w-full h-[240px] sm:h-[300px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
+              priority
             />
             <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center text-white text-lg sm:text-xl font-semibold">
               {project.title}

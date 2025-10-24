@@ -1,7 +1,6 @@
 "use client";
 
-import { useContext } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import skillsData from "@/database/db.json";
 import {
@@ -29,7 +28,7 @@ const iconsMap: Record<string, React.ElementType> = {
 
 const skills = skillsData.skills;
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,
@@ -102,7 +101,11 @@ export default function Skills() {
                   </h3>
                 </div>
 
-                <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                <p
+                  className={`leading-relaxed ${
+                    darkMode ? "text-gray-200" : "text-gray-700"
+                  } text-sm sm:text-base`}
+                >
                   {skill.description}
                 </p>
 
@@ -117,7 +120,11 @@ export default function Skills() {
                   ></motion.div>
                 </div>
 
-                <p className="text-right font-semibold text-gray-600 text-xs sm:text-sm">
+                <p
+                  className={`text-right font-semibold text-xs sm:text-sm ${
+                    darkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
+                >
                   سطح مهارت: {skill.level}%
                 </p>
               </motion.div>

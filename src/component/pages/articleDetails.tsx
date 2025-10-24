@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, ChevronDown, User, Tag, BookOpen } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext";
 
 interface Article {
@@ -62,10 +63,11 @@ export default function ArticleDetails({ article }: ArticleDetailsProps) {
           className="md:w-1/2 relative group overflow-hidden h-64 sm:h-auto"
           whileHover={{ scale: 1.02 }}
         >
-          <img
+          <Image
             src={article.image}
             alt={article.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10"></div>
 
@@ -156,9 +158,7 @@ export default function ArticleDetails({ article }: ArticleDetailsProps) {
                 />
                 <span className="font-medium">
                   دسته‌بندی:{" "}
-                  <span className="font-bold">
-                    {article.category || "عمومی"}
-                  </span>
+                  <span className="font-bold">{article.category || "عمومی"}</span>
                 </span>
               </div>
             </div>

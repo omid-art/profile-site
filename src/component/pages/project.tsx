@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Gitlab } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext"; // مسیر رو تنظیم کن
 
 interface Project {
@@ -103,10 +104,12 @@ export default function Projects() {
                       : "bg-white shadow-[0_4px_25px_-10px_rgba(0,0,0,0.15)]"
                   }`}
                 >
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    priority
                   />
                   <div
                     className={`absolute bottom-0 w-full p-3 sm:p-4 text-center font-bold text-base sm:text-lg ${

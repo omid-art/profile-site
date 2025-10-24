@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import articlesData from "@/database/db.json";
 import { useTheme } from "@/context/ThemeContext"; // 👈 اتصال به Context
 
@@ -84,11 +85,14 @@ function ArticleCarousel({ data, darkMode = false }: ArticleCarouselProps) {
               }}
             >
               <Link href={`/article/${article.id}`}>
-                <img
-                  src={article.image}
-                  alt={article.title}
-                  className="h-40 sm:h-32 md:h-40 w-full object-cover rounded-t-2xl"
-                />
+                <div className="relative w-full h-40 sm:h-32 md:h-40 rounded-t-2xl overflow-hidden">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
                 {/* ✅ بخش پایین کارت سفید با متن مشکی */}
                 <div className="p-4 bg-gray-100 transition-colors duration-500 shadow-2xl">
                   <h3 className="font-bold text-lg sm:text-base md:text-lg mb-2 text-gray-900">
@@ -116,6 +120,9 @@ export default function ArticlesClient() {
   const { darkMode } = useTheme(); // 👈 استفاده از Context
   const categories = articlesData.articles;
 
+  type CategoryKey = keyof typeof categories; // 🔹 برطرف کردن ارور
+  const categoryKeys = Object.keys(categories) as CategoryKey[];
+
   return (
     <div
       className={`min-h-screen w-full transition-colors duration-700 ${
@@ -137,7 +144,7 @@ export default function ArticlesClient() {
           مقالات و تجربه‌های من
         </motion.h1>
 
-        {Object.keys(categories).map((cat, idx) => (
+        {categoryKeys.map((cat, idx) => (
           <div key={idx} className="mb-16">
             <h2
               className={`text-2xl font-bold mb-6 ${

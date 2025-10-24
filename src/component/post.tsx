@@ -10,7 +10,8 @@ import {
   ArrowDownIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { useTheme } from "@/context/ThemeContext"; // 👈 اضافه شد
+import Image from "next/image";
+import { useTheme } from "@/context/ThemeContext";
 
 const cards = [
   {
@@ -19,7 +20,6 @@ const cards = [
     icon: PhoneIcon,
     url: "/conect-me",
     color: "bg-gradient-to-r from-blue-500 to-blue-700",
-    darkColor: "bg-gradient-to-r from-gray-800 to-gray-700",
   },
   {
     title: "مهارت‌ها",
@@ -27,7 +27,6 @@ const cards = [
     icon: CodeBracketIcon,
     url: "/skills",
     color: "bg-gradient-to-r from-green-500 to-emerald-600",
-    darkColor: "bg-gradient-to-r from-gray-700 to-gray-800",
   },
   {
     title: "پروژه‌ها",
@@ -35,7 +34,6 @@ const cards = [
     icon: FolderIcon,
     url: "/project",
     color: "bg-gradient-to-r from-purple-600 to-violet-700",
-    darkColor: "bg-gradient-to-r from-gray-700 to-gray-800",
   },
   {
     title: "مقالات",
@@ -43,7 +41,6 @@ const cards = [
     icon: DocumentTextIcon,
     url: "/article",
     color: "bg-gradient-to-r from-red-500 to-pink-600",
-    darkColor: "bg-gradient-to-r from-gray-700 to-gray-800",
   },
   {
     title: "درباره من",
@@ -51,12 +48,11 @@ const cards = [
     icon: UserIcon,
     url: "/about-me",
     color: "bg-gradient-to-r from-orange-500 to-amber-600",
-    darkColor: "bg-gradient-to-r from-gray-700 to-gray-800",
   },
 ];
 
 export default function HomePage() {
-  const { darkMode } = useTheme(); // 👈 از Context گرفتیم
+  const { darkMode } = useTheme();
 
   const [text, setText] = useState("");
   const fullText =
@@ -79,12 +75,11 @@ export default function HomePage() {
 
   return (
     <div
-      className={`w-full min-h-screen flex flex-col items-center overflow-hidden transition-colors duration-700
-        ${
-          darkMode
-            ? "bg-gradient-to-b from-gray-900 to-black text-white"
-            : "bg-gradient-to-b from-white to-gray-100 text-gray-900"
-        }`}
+      className={`w-full min-h-screen flex flex-col items-center overflow-hidden transition-colors duration-700 ${
+        darkMode
+          ? "bg-gray-900 text-white"
+          : "bg-gradient-to-b from-white to-gray-100 text-gray-900"
+      }`}
     >
       {/* HERO SECTION */}
       <section className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-16 py-12 md:py-20 text-center md:text-left">
@@ -114,7 +109,7 @@ export default function HomePage() {
 
           <p
             className={`text-sm sm:text-base md:text-lg max-w-lg mx-auto md:mx-0 leading-relaxed ${
-              darkMode ? "text-gray-400" : "text-gray-600"
+              darkMode ? "text-gray-300" : "text-gray-600"
             }`}
           >
             من عاشق خلق رابط‌های کاربری تمیز، سریع و مدرن هستم.  
@@ -123,7 +118,7 @@ export default function HomePage() {
 
           <motion.button
             onClick={scrollToCards}
-            className={`mt-8 relative w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 rounded-full backdrop-blur-md font-semibold shadow-md transition duration-300 flex items-center justify-center gap-2 mx-auto md:mx-0 ${
+            className={`mt-8 relative w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold shadow-md transition duration-300 flex items-center justify-center gap-2 mx-auto md:mx-0 ${
               darkMode
                 ? "bg-purple-700 hover:bg-purple-600 text-white shadow-purple-900/40"
                 : "bg-purple-500 hover:bg-purple-600 text-white shadow-purple-300/40"
@@ -153,10 +148,12 @@ export default function HomePage() {
               darkMode ? "border-purple-800" : "border-purple-200"
             }`}
           >
-            <img
+            <Image
               src="/picProfile.jpg"
               alt="Omid Pourbagher"
-              className="object-cover w-full h-full"
+              fill
+              className="object-cover"
+              priority
             />
           </div>
         </motion.div>
@@ -165,7 +162,7 @@ export default function HomePage() {
       {/* SKILLS SECTION */}
       <section
         className={`w-full py-12 sm:py-16 px-4 sm:px-6 md:px-16 text-center transition-colors duration-700 ${
-          darkMode ? "bg-gray-800/60" : "bg-gray-50"
+          darkMode ? "bg-gray-900" : "bg-gray-50"
         }`}
       >
         <h2
@@ -190,9 +187,7 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className={`px-3 sm:px-5 py-2 sm:py-3 rounded-full ${
-                skill.color
-              } text-white text-xs sm:text-sm md:text-base font-medium shadow-md hover:scale-105 transition-all`}
+              className={`px-3 sm:px-5 py-2 sm:py-3 rounded-full ${skill.color} text-white text-xs sm:text-sm md:text-base font-medium shadow-md hover:scale-105 transition-all`}
             >
               {skill.name}
             </motion.div>
@@ -212,9 +207,7 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
               viewport={{ once: true }}
-              className={`hover:shadow-2xl hover:scale-[1.03] transition-all rounded-2xl p-5 sm:p-8 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 cursor-pointer ${
-                darkMode ? card.darkColor : card.color
-              }`}
+              className={`hover:shadow-2xl hover:scale-[1.03] transition-all rounded-2xl p-5 sm:p-8 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 cursor-pointer ${card.color}`}
             >
               <div className="p-2 sm:p-3 bg-white/20 rounded-full">
                 <card.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />

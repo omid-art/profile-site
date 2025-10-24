@@ -3,6 +3,7 @@ import React from "react";
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import * as SiIcons from "react-icons/si";
+import { IconType } from "react-icons";
 import { FaArrowRightLong } from "react-icons/fa6";
 import skillsData from "@/database/db.json";
 import { useTheme } from "@/context/ThemeContext";
@@ -24,7 +25,8 @@ const SkillDetails = () => {
       </p>
     );
 
-  const Icon = (SiIcons as any)[skill.icon];
+  // تایپ درست برای داینامیک آیکون
+  const Icon = (SiIcons as Record<string, IconType>)[skill.icon];
 
   return (
     <div
@@ -38,20 +40,19 @@ const SkillDetails = () => {
         }, ${darkMode ? "#111827" : "white"})`,
       }}
     >
-      {/* دکمه بازگشت (رنگ و استایل ثابت) */}
-<button
-  onClick={() => router.push("/skills")}
-  className={`group mb-10 flex items-center gap-3 px-6 py-3 rounded-full font-bold shadow-lg transition-all hover:scale-105 hover:shadow-xl ${
-    darkMode ? "text-white" : "text-gray-800"
-  }`}
-  style={{
-    background: `linear-gradient(135deg, ${skill.primary}, #0000)`,
-  }}
->
-  <span className="group-hover:-translate-x-1 transition-transform">←</span>
-  بازگشت به مهارت‌ها
-</button>
-
+      {/* دکمه بازگشت */}
+      <button
+        onClick={() => router.push("/skills")}
+        className={`group mb-10 flex items-center gap-3 px-6 py-3 rounded-full font-bold shadow-lg transition-all hover:scale-105 hover:shadow-xl ${
+          darkMode ? "text-white" : "text-gray-800"
+        }`}
+        style={{
+          background: `linear-gradient(135deg, ${skill.primary}, ${skill.primary})`,
+        }}
+      >
+        <span className="group-hover:-translate-x-1 transition-transform">←</span>
+        بازگشت به مهارت‌ها
+      </button>
 
       <div className="relative flex flex-col md:flex-row items-start gap-10 w-full max-w-6xl">
         {/* باکس سمت چپ */}
@@ -94,16 +95,18 @@ const SkillDetails = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <Icon
-            className="absolute opacity-10 text-9xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-0"
-            style={{ color: skill.primary }}
-          />
+          {Icon && (
+            <Icon
+              className="absolute opacity-10 text-9xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-0"
+              style={{ color: skill.primary }}
+            />
+          )}
 
           <div
             className="p-8 rounded-full shadow-lg text-white flex items-center justify-center text-6xl z-10"
             style={{ backgroundColor: skill.primary }}
           >
-            <Icon />
+            {Icon && <Icon />}
           </div>
 
           <div className="flex-1 flex flex-col gap-6 text-right z-10">

@@ -1,13 +1,14 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useTheme } from "@/context/ThemeContext"; // 👈 اتصال به Context
 
-const fadeUp = {
+// 🔹 تعریف صحیح Variants با custom برای استفاده از index
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 50 },
-  visible: (i: number) => ({
+  visible: (custom: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
+    transition: { delay: custom * 0.2, duration: 0.6, ease: "easeOut" },
   }),
 };
 
@@ -45,9 +46,7 @@ export default function AboutPage() {
   return (
     <div
       className={`min-h-screen w-full transition-colors duration-700 ${
-        darkMode
-          ? "bg-gray-900 text-white"
-          : "bg-white text-gray-900"
+        darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
       }`}
       dir="rtl"
     >
@@ -69,17 +68,10 @@ export default function AboutPage() {
         {/* معرفی کوتاه */}
         <motion.div
           className="mb-12 text-right"
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          variants={{
-            hidden: { opacity: 0, y: 30 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { duration: 0.8, ease: "easeOut" },
-            },
-          }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <p
             className={`text-lg sm:text-base md:text-xl font-semibold ${
