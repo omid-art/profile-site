@@ -20,7 +20,7 @@ export default function Contact() {
         dir="rtl"
       >
         <h1
-          className={`text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 ${
+          className={`pt-7 text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 ${
             darkMode ? "text-white" : "text-gray-800"
           }`}
         >

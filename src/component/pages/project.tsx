@@ -71,7 +71,7 @@ export default function Projects() {
       dir="rtl"
     >
       <motion.h1
-        className={`text-3xl sm:text-4xl md:text-5xl font-bold text-center pt-12 mb-8 sm:mb-12 ${
+        className={` text-3xl sm:text-4xl md:text-5xl font-bold text-center pt-16 mb-8 sm:mb-12 ${
           darkMode ? "text-white" : "text-gray-900"
         }`}
         initial={{ opacity: 0, y: 40 }}
