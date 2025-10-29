@@ -87,24 +87,24 @@ export default function ProjectDetails({ projectId }: ProjectDetailsProps) {
     >
       <div className="flex flex-row lg:flex-col justify-between gap-4 w-full lg:w-44">
         <div className="bg-sky-200 rounded-2xl p-4 text-center shadow-lg flex-1 flex flex-col justify-center transition-all duration-500">
-          <p className="text-sm text-gray-700 dark:text-gray-200 mb-1">⏱ مدت زمان</p>
+          <p className="text-sm text-gray-700 dark:text-black font-bold mb-1"> مدت زمان ⏱</p>
           <p className="text-base font-semibold">{project.duration}</p>
         </div>
 
         <div className="bg-amber-200 rounded-2xl p-4 text-center shadow-lg flex-1 flex flex-col justify-center transition-all duration-500">
-          <p className="text-sm text-gray-700 dark:text-gray-200 mb-1">💰 مبلغ</p>
+          <p className="text-sm text-gray-700 dark:text-black font-bold mb-1"> مبلغ 💰</p>
           <p className="text-base font-semibold">{project.price}</p>
         </div>
 
         <div className="bg-violet-200 rounded-2xl p-4 text-center shadow-lg flex-1 flex flex-col justify-center transition-all duration-500">
-          <p className="text-sm text-gray-700 dark:text-gray-200 mb-2">💪 سختی پروژه</p>
+          <p className="text-sm text-gray-700 dark:text-black font-bold mb-2 text-b"> سختی پروژه 💪</p>
           <div className="w-full bg-violet-300 h-2 rounded-full overflow-hidden">
             <div
               className="bg-violet-600 h-2 rounded-full transition-all duration-500"
               style={{ width: `${project.difficulty}%` }}
             ></div>
           </div>
-          <p className="text-sm mt-1 text-gray-700 dark:text-gray-200">{project.difficulty}%</p>
+          <p className="text-sm mt-1 text-gray-700 dark:text-black font-bold">{project.difficulty}%</p>
         </div>
       </div>
 
