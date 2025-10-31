@@ -30,7 +30,7 @@ const cards = [
   },
   {
     title: "پروژه‌ ها",
-    desc: "نمونه‌ کار های واقعی و پروژه‌های انجام شده من.",
+    desc: "نمونه‌ کار های واقعی و پروژه‌های انجام شده من. با react , next",
     icon: FolderIcon,
     url: "/project",
     color: "bg-gradient-to-r from-purple-600 to-violet-700",

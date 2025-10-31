@@ -167,7 +167,7 @@
         "id": "1",
         "title": "شروع جاوااسکریپت",
         "desc": "نکات پایه‌ای برای شروع یادگیری جاوااسکریپت.",
-        "image": "/pic1.jpg",
+        "image": "/articleimage/js/pic1.png",
         "date": "1404/07/01",
         "readTime": "5 دقیقه"
       },
@@ -175,7 +175,7 @@
         "id": "2",
         "title": "توابع در جاوااسکریپت",
         "desc": "همه‌چیز درباره فانکشن‌ها.",
-        "image": "/pic2.jpg",
+        "image": "/articleimage/js/pic2.jpg",
         "date": "1404/07/02",
         "readTime": "7 دقیقه"
       },
@@ -183,7 +183,7 @@
         "id": "3",
         "title": "DOM Manipulation",
         "desc": "چطور با DOM کار کنیم؟",
-        "image": "/pic3.jpg",
+        "image": "/articleimage/js/pic3.png",
         "date": "1404/07/03",
         "readTime": "6 دقیقه"
       },
@@ -191,7 +191,7 @@
         "id": "4",
         "title": "ES6 Features",
         "desc": "ویژگی‌های مهم ES6.",
-        "image": "/pic4.jpg",
+        "image": "/articleimage/js/pic4.jpg",
         "date": "1404/07/04",
         "readTime": "8 دقیقه"
       },
@@ -199,7 +199,7 @@
         "id": "5",
         "title": "Async Await",
         "desc": "مدیریت کدهای async.",
-        "image": "/pic5.jpg",
+        "image": "/articleimage/js/pic5.png",
         "date": "1404/07/05",
         "readTime": "10 دقیقه"
       }
@@ -209,7 +209,7 @@
         "id": "6",
         "title": "شروع HTML",
         "desc": "توضیحات پایه‌ای برای HTML.",
-        "image": "/pic1.jpg",
+        "image": "/articleimage/html,css/pic1.png",
         "date": "1404/06/01",
         "readTime": "5 دقیقه"
       },
@@ -217,7 +217,7 @@
         "id": "7",
         "title": "شروع CSS",
         "desc": "استایل‌دهی اصولی.",
-        "image": "/pic2.jpg",
+        "image": "/articleimage/html,css/pic2.jpg",
         "date": "1404/06/02",
         "readTime": "6 دقیقه"
       },
@@ -225,7 +225,7 @@
         "id": "8",
         "title": "Flexbox",
         "desc": "راهنمای کامل Flexbox.",
-        "image": "/pic3.jpg",
+        "image": "/articleimage/html,css/pic3.jpg",
         "date": "1404/06/03",
         "readTime": "8 دقیقه"
       },
@@ -233,7 +233,7 @@
         "id": "9",
         "title": "Grid",
         "desc": "توضیحات Grid Layout.",
-        "image": "/pic4.jpg",
+        "image": "/articleimage/html,css/pic4.jpg",
         "date": "1404/06/04",
         "readTime": "9 دقیقه"
       },
@@ -241,7 +241,7 @@
         "id": "10",
         "title": "Responsive Design",
         "desc": "طراحی ریسپانسیو.",
-        "image": "/pic5.jpg",
+        "image": "/articleimage/html,css/pic5.jpg",
         "date": "1404/06/05",
         "readTime": "7 دقیقه"
       }
@@ -251,7 +251,7 @@
         "id": "11",
         "title": "شروع React",
         "desc": "اولین قدم‌ها در ری‌اکت.",
-        "image": "/pic1.jpg",
+        "image": "/articleimage/react/pic1.png",
         "date": "1404/05/01",
         "readTime": "6 دقیقه"
       },
@@ -259,7 +259,7 @@
         "id": "12",
         "title": "کامپوننت‌ها",
         "desc": "ساختاردهی با کامپوننت‌ها.",
-        "image": "/pic2.jpg",
+        "image": "/articleimage/react/pic2.jpg",
         "date": "1404/05/02",
         "readTime": "7 دقیقه"
       },
@@ -267,7 +267,7 @@
         "id": "13",
         "title": "Props و State",
         "desc": "چطور دیتا مدیریت کنیم؟",
-        "image": "/pic3.jpg",
+        "image": "/articleimage/react/pic3.jpg",
         "date": "1404/05/03",
         "readTime": "9 دقیقه"
       },
@@ -275,7 +275,7 @@
         "id": "14",
         "title": "هوک‌ها",
         "desc": "آشنایی با React Hooks.",
-        "image": "/pic4.jpg",
+        "image": "/articleimage/react/pic4.jpg",
         "date": "1404/05/04",
         "readTime": "10 دقیقه"
       },
@@ -283,7 +283,7 @@
         "id": "15",
         "title": "ری‌اکت Router",
         "desc": "مدیریت صفحات در ری‌اکت.",
-        "image": "/pic5.jpg",
+        "image": "/articleimage/react/pic5.jpg",
         "date": "1404/05/05",
         "readTime": "12 دقیقه"
       }
@@ -293,7 +293,7 @@
         "id": "16",
         "title": "شروع Next.js",
         "desc": "قدم اول با Next.",
-        "image": "/pic1.jpg",
+        "image": "/articleimage/next/pic1.jpg",
         "date": "1404/04/01",
         "readTime": "7 دقیقه"
       },
@@ -301,7 +301,7 @@
         "id": "17",
         "title": "File-based Routing",
         "desc": "راوتینگ در Next.js.",
-        "image": "/pic2.jpg",
+        "image": "/articleimage/next/pic2.jpg",
         "date": "1404/04/02",
         "readTime": "8 دقیقه"
       },
@@ -309,7 +309,7 @@
         "id": "18",
         "title": "SSR و SSG",
         "desc": "تفاوت SSR و SSG.",
-        "image": "/pic3.jpg",
+        "image": "/articleimage/next/pic3.jpg",
         "date": "1404/04/03",
         "readTime": "10 دقیقه"
       },
@@ -317,7 +317,7 @@
         "id": "19",
         "title": "API Routes",
         "desc": "نوشتن API در Next.",
-        "image": "/pic4.jpg",
+        "image": "/articleimage/next/pic4.jpg",
         "date": "1404/04/04",
         "readTime": "9 دقیقه"
       },
@@ -325,7 +325,7 @@
         "id": "20",
         "title": "Deployment",
         "desc": "دیپلوی روی Vercel.",
-        "image": "/pic5.jpg",
+        "image": "/articleimage/next/pic5.png",
         "date": "1404/04/05",
         "readTime": "11 دقیقه"
       }
@@ -335,7 +335,7 @@
         "id": "21",
         "title": "شروع TypeScript",
         "desc": "چرا TS مهمه؟",
-        "image": "/pic1.jpg",
+        "image": "/articleimage/ts/pic1.jpg",
         "date": "1404/03/01",
         "readTime": "6 دقیقه"
       },
@@ -343,7 +343,7 @@
         "id": "22",
         "title": "Types و Interfaces",
         "desc": "مدیریت تایپ‌ها.",
-        "image": "/pic2.jpg",
+        "image": "/articleimage/ts/pic2.png",
         "date": "1404/03/02",
         "readTime": "7 دقیقه"
       },
@@ -351,7 +351,7 @@
         "id": "23",
         "title": "Generics",
         "desc": "درک بهتر Generics.",
-        "image": "/pic3.jpg",
+        "image": "/articleimage/ts/pic3.jpg",
         "date": "1404/03/03",
         "readTime": "8 دقیقه"
       },
@@ -359,7 +359,7 @@
         "id": "24",
         "title": "Utility Types",
         "desc": "انواع آماده TS.",
-        "image": "/pic4.jpg",
+        "image": "/articleimage/ts/pic4.jpg",
         "date": "1404/03/04",
         "readTime": "9 دقیقه"
       },
@@ -367,7 +367,7 @@
         "id": "25",
         "title": "TS در React",
         "desc": "چطور TS رو با React استفاده کنیم.",
-        "image": "/pic5.jpg",
+        "image": "/articleimage/ts/pic5.jpg",
         "date": "1404/03/05",
         "readTime": "10 دقیقه"
       }
