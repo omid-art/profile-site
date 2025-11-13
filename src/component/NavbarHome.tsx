@@ -1,53 +1,88 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Mail, User, FileText, Settings, Code, Home, Sun, Moon } from "lucide-react";
+import { usePathname } from "next/navigation";
+import {
+  Menu,
+  X,
+  Mail,
+  User,
+  FileText,
+  Settings,
+  Code,
+  Home,
+  Sun,
+  Moon,
+} from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
-function NavbarHome() {
+function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { darkMode, toggleDarkMode, isMounted } = useTheme();
+  const pathname = usePathname();
 
   const navItems = [
-    { title: "ارتباط با من", href: "/conect-me", icon: <Mail size={20} /> },
-    { title: "درباره من", href: "/about-me", icon: <User size={20} /> },
-    { title: "مقالات", href: "/article", icon: <FileText size={20} /> },
-    { title: "مهارت ها", href: "/skills", icon: <Settings size={20} /> },
-    { title: "پروژه ها", href: "/project", icon: <Code size={20} /> },
     { title: "خانه", href: "/", icon: <Home size={20} /> },
+    { title: "پروژه ها", href: "/project", icon: <Code size={20} /> },
+    { title: "مهارت ها", href: "/skills", icon: <Settings size={20} /> },
+    { title: "مقالات", href: "/article", icon: <FileText size={20} /> },
+    { title: "درباره من", href: "/about-me", icon: <User size={20} /> },
+    { title: "ارتباط با من", href: "/conect-me", icon: <Mail size={20} /> },
   ];
 
   if (!isMounted) return null;
 
+  const hideToggle = pathname === "/"; // در هوم دکمه مخفی باشه
+
   return (
     <>
       <nav className="w-full fixed top-0 left-0 backdrop-blur-md bg-black/20 text-white flex justify-between items-center px-6 py-3 z-50 shadow-md transition-colors duration-300">
+        {/* لوگو */}
         <div className="flex items-center gap-4">
-          <div
-            onClick={toggleDarkMode}
-            className={`w-16 h-8 flex items-center rounded-full p-1 cursor-pointer relative transition-colors duration-500
-              ${darkMode ? "bg-gray-800" : "bg-gray-300"}`}
-          >
-            <div
-              id="toggle-ball"
-              className={`absolute top-0.5 left-0.5 w-7 h-7 rounded-full transform transition-transform duration-500 flex items-center justify-center
-                ${darkMode
-                  ? "translate-x-8 bg-gray-400 shadow-[0_0_8px_rgba(255,255,255,0.3)] animate-[swing_2s_ease-in-out_infinite]"
-                  : "translate-x-0 bg-white shadow-[0_0_6px_rgba(0,0,0,0.2)] animate-pulse"
-                }`}
-            >
-              {darkMode ? <Moon size={18} className="text-white" /> : <Sun size={18} className="text-gray-700" />}
-            </div>
+          <div className="font-bold text-2xl cursor-pointer select-none flex items-center gap-2">
+            <Code size={28} className="text-purple-500" />
+            <span>Omid Pourbagher</span>
           </div>
         </div>
 
-        {/* منو موبایل و desktop بدون تغییر */}
+        {/* دکمه سوییچ مود موبایل */}
+        {!hideToggle && (
+          <div className="md:hidden flex items-center mr-2">
+            <div
+              onClick={toggleDarkMode}
+              className={`w-14 h-8 flex items-center rounded-full p-1 cursor-pointer relative transition-colors duration-500
+                ${darkMode ? "bg-gray-800" : "bg-gray-300"}`}
+            >
+              <div
+                id="toggle-ball"
+                className={`absolute top-0.5 left-0.5 w-7 h-7 rounded-full transform transition-transform duration-500 flex items-center justify-center
+                  ${
+                    darkMode
+                      ? "translate-x-6 bg-gray-400 shadow-[0_0_8px_rgba(255,255,255,0.3)] animate-[swing_2s_ease-in-out_infinite]"
+                      : "translate-x-0 bg-white shadow-[0_0_6px_rgba(0,0,0,0.2)] animate-pulse"
+                  }`}
+              >
+                {darkMode ? (
+                  <Moon size={18} className="text-white" />
+                ) : (
+                  <Sun size={18} className="text-gray-700" />
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* منو موبایل */}
         <div className="md:hidden flex items-center">
-          <button onClick={() => setIsOpen(!isOpen)} className="p-2 rounded-md hover:bg-white/20 transition">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 rounded-md hover:bg-white/20 transition"
+          >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
+        {/* منو دسکتاپ */}
         <ul className="hidden md:flex gap-8 mx-auto items-center">
           {navItems.map((item, id) => (
             <Link href={item.href} key={id}>
@@ -58,14 +93,43 @@ function NavbarHome() {
           ))}
         </ul>
 
-        <div className="hidden md:flex items-center gap-2 font-bold text-2xl cursor-pointer select-none">
-          <Code size={28} className="via-gray-800 text-gray-600" />
-          <span className="font-sans">Omid Pourbagher</span>
-        </div>
+        {/* دکمه سوییچ مود دسکتاپ */}
+        {!hideToggle && (
+          <div className="hidden md:flex items-center gap-2">
+            <div
+              onClick={toggleDarkMode}
+              className={`w-16 h-8 flex items-center rounded-full p-1 cursor-pointer relative transition-colors duration-500
+                ${darkMode ? "bg-gray-800" : "bg-gray-300"}`}
+            >
+              <div
+                id="toggle-ball"
+                className={`absolute top-0.5 left-0.5 w-7 h-7 rounded-full transform transition-transform duration-500 flex items-center justify-center
+                  ${
+                    darkMode
+                      ? "translate-x-8 bg-gray-400 shadow-[0_0_8px_rgba(255,255,255,0.3)] animate-[swing_2s_ease-in-out_infinite]"
+                      : "translate-x-0 bg-white shadow-[0_0_6px_rgba(0,0,0,0.2)] animate-pulse"
+                  }`}
+              >
+                {darkMode ? (
+                  <Moon size={18} className="text-white" />
+                ) : (
+                  <Sun size={18} className="text-gray-700" />
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
 
-      {isOpen && <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40" onClick={() => setIsOpen(false)}></div>}
+      {/* بک‌درآپ موبایل */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
 
+      {/* سایدبار موبایل */}
       <div
         className={`fixed top-0 left-0 w-64 h-full bg-gradient-to-b from-gray-700/90 to-black/90 backdrop-blur-md shadow-2xl flex flex-col p-6 gap-6 text-white z-50 transform transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
@@ -76,7 +140,9 @@ function NavbarHome() {
             <Code size={28} className="text-purple-500" />
             Omid Pourbagher
           </div>
-          <p className="text-sm text-gray-300">به دنیای مقالات و پروژه های من خوش آمدید!</p>
+          <p className="text-sm text-gray-300">
+            به دنیای مقالات و پروژه های من خوش آمدید!
+          </p>
           <hr className="border-gray-500/50" />
         </div>
 
@@ -101,4 +167,4 @@ function NavbarHome() {
   );
 }
 
-export default NavbarHome;
+export default Navbar;

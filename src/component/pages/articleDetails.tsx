@@ -25,7 +25,7 @@ export default function ArticleDetails({ article }: ArticleDetailsProps) {
 
   return (
     <div
-      className={`min-h-screen flex flex-col items-center justify-start py-10 sm:py-16 px-4 sm:px-8 mt-4 transition-colors duration-700 ${
+      className={`min-h-screen  flex flex-col items-center justify-start py-10 sm:py-16 px-4 sm:px-8 mt-9 transition-colors duration-700 ${
         darkMode
           ? "bg-gray-900 text-white"
           : "bg-gradient-to-b from-gray-50 to-gray-100 text-gray-900"

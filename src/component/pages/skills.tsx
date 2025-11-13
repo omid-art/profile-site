@@ -48,7 +48,7 @@ export default function Skills() {
       }`}
     >
       <motion.h1
-        className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-10 sm:mb-12 leading-snug transition-colors duration-500"
+        className="text-3xl mt-3.5 sm:text-4xl md:text-5xl font-bold text-center mb-10 sm:mb-12 leading-snug transition-colors duration-500"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}

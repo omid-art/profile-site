@@ -4,7 +4,6 @@ import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import * as SiIcons from "react-icons/si";
 import { IconType } from "react-icons";
-import { FaArrowRightLong } from "react-icons/fa6";
 import skillsData from "@/database/db.json";
 import { useTheme } from "@/context/ThemeContext";
 
@@ -146,18 +145,6 @@ const SkillDetails = () => {
             >
               {skill.description}
             </p>
-
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 font-semibold text-white px-6 py-3 rounded-xl transition-transform hover:scale-105"
-              style={{
-                background: `linear-gradient(135deg, ${skill.primary}, ${skill.primary}aa)`,
-                boxShadow: `0 4px 15px ${skill.primary}55`,
-              }}
-            >
-              مشاهده پروژه مرتبط
-              <FaArrowRightLong className="text-xl" />
-            </a>
           </div>
         </motion.div>
 
