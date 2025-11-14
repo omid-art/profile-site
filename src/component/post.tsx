@@ -16,7 +16,7 @@ import DarkVeil from "@/component/react-bits/DarkVeil";
 const cards = [
   {
     title: "درباره من",
-    desc: "آشنایی کوتاه با من و مسیر یادگیری‌ ام.",
+    desc: "آشنایی کوتاه با من و مسیر یادگیری‌ ام از شروع برنامه نویسی",
     icon: UserIcon,
     url: "/about-me",
     color: "bg-gradient-to-r from-orange-500 to-amber-600",
@@ -44,17 +44,17 @@ const cards = [
   },
   {
     title: "مقالات",
-    desc: "یادداشت‌ ها و مقالاتی که نوشتم.",
+    desc: "یادداشت‌ ها و مقالاتی که نوشتم و اطلاعاتی که در طی زمان یاد گرفتم",
     icon: DocumentTextIcon,
     url: "/article",
     color: "bg-gradient-to-r from-red-500 to-pink-600",
-  }
+  },
 ];
 
 export default function HomePage() {
   const [text, setText] = useState("");
   const fullText =
-    "سلام 👋 من امید پورباقر هستم، توسعه‌  دهنده فرانت‌ اند و عاشق خلق رابط‌ های کاربری زیبا و تمیز.";
+    "سلام 👋 من امید پورباقر هستم، توسعه‌ دهنده فرانت‌ اند و عاشق خلق رابط‌ های کاربری زیبا و تمیز.";
 
   useEffect(() => {
     let i = 0;
@@ -72,9 +72,10 @@ export default function HomePage() {
   };
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center overflow-hidden bg-gray-900 text-white transition-colors duration-700">
+    <div className="relative z-0 w-full min-h-screen flex flex-col items-center overflow-hidden bg-transparent text-white transition-colors duration-700 dark:bg-black">
+      
       {/* Background effect */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-50 pointer-events-none">
         <DarkVeil
           hueShift={30}
           noiseIntensity={0.05}
@@ -86,23 +87,35 @@ export default function HomePage() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full flex flex-col items-center">
+      <div className="relative w-full flex flex-col items-center">
+        
         {/* Header Section */}
         <section className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-16 py-12 md:py-20 text-center md:text-left">
+          
           <motion.div
             className="flex-1 space-y-4 sm:space-y-5"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
+            
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-tight text-white">
               <motion.span
                 className="block"
                 animate={{
                   color: [
-                    "#60A5FA","#3B82F6","#6366F1","#8B5CF6","#A855F7",
-                    "#EC4899","#F43F5E","#F97316","#FACC15","#4ADE80",
-                    "#06B6D4","#60A5FA",
+                    "#60A5FA",
+                    "#3B82F6",
+                    "#6366F1",
+                    "#8B5CF6",
+                    "#A855F7",
+                    "#EC4899",
+                    "#F43F5E",
+                    "#F97316",
+                    "#FACC15",
+                    "#4ADE80",
+                    "#06B6D4",
+                    "#60A5FA",
                   ],
                 }}
                 transition={{
@@ -115,11 +128,12 @@ export default function HomePage() {
               </motion.span>
             </h1>
 
-            <p className="text-base sm:text-lg md:text-xl font-light min-h-[60px] text-gray-300">
+            {/* ✅ متن تایپ شونده → راست‌به‌چپ */}
+            <p className="text-base sm:text-lg md:text-xl font-light min-h-[60px] text-gray-300 text-right leading-relaxed">
               {text}
             </p>
 
-            <p className="text-sm sm:text-base md:text-lg max-w-lg mx-auto md:mx-0 leading-relaxed text-gray-300">
+            <p className="text-sm sm:text-base md:text-lg max-w-lg mx-auto md:mx-0 leading-relaxed text-gray-300 text-right">
               من عاشق خلق رابط‌ های کاربری تمیز، سریع و مدرن هستم. تمرکزم روی
               توسعه‌ی فرانت‌اند با React و Next.js و طراحی تجربه‌ های کاربری
               خلاقانه‌ ست.
@@ -145,7 +159,7 @@ export default function HomePage() {
             </motion.button>
           </motion.div>
 
-          {/* تصویر پروفایل */}
+          {/* Profile Image */}
           <motion.div
             className="flex-1 flex justify-center mt-10 md:mt-0"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -219,6 +233,7 @@ export default function HomePage() {
             </Link>
           ))}
         </section>
+
       </div>
     </div>
   );
